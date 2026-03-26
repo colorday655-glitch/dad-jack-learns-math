@@ -1,64 +1,70 @@
 'use client';
 
 import { useState } from 'react';
-import { videos, categories, Video } from './data/videos';
+import { products, categories, printOptions, Product } from './data/products';
+import Link from 'next/link';
 
-function VideoCard({ video }: { video: Video }) {
+function ProductCard({ product }: { product: Product }) {
   return (
-    <a 
-      href={`/video/${video.id}`}
+    <Link 
+      href={`/product/${product.id}`}
       className="block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
     >
       <div className="relative aspect-video">
         <img 
-          src={video.thumbnail} 
-          alt={video.title}
+          src={product.thumbnail} 
+          alt={product.title}
           className="w-full h-full object-cover"
         />
-        <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
-          {video.duration}
-        </span>
-        <span className="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">
-          {video.platform === 'bilibili' ? 'B站' : video.platform === 'youtube' ? 'YouTube' : '抖音'}
+        <span className="absolute top-2 right-2 bg-orange-500 text-white text-sm px-3 py-1 rounded font-medium">
+          ¥{product.price}
         </span>
       </div>
       <div className="p-4">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
-            {video.category}
-          </span>
-          <span className="text-xs text-gray-400">
-            {video.publishDate}
-          </span>
-        </div>
-        <h3 className="font-semibold text-lg text-gray-800 mb-2 line-clamp-2">
-          {video.title}
+        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
+          {product.category}
+        </span>
+        <h3 className="font-semibold text-lg text-gray-800 mt-2 mb-2 line-clamp-2">
+          {product.title}
         </h3>
         <p className="text-sm text-gray-600 line-clamp-2">
-          {video.description}
+          {product.description}
         </p>
       </div>
-    </a>
+    </Link>
   );
 }
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('全部');
 
-  const filteredVideos = selectedCategory === '全部' 
-    ? videos 
-    : videos.filter(v => v.category === selectedCategory);
+  const filteredProducts = selectedCategory === '全部' 
+    ? products 
+    : products.filter(p => p.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-gray-800">Jack爸爸学数学</h1>
-          <p className="text-gray-500 mt-1">有趣的数学启蒙，让学习变得简单</p>
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800">Jack爸爸学数学</h1>
+              <p className="text-gray-500 mt-1">一页纸游戏打印</p>
+            </div>
+            <Link href="/cart" className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">
+              🛒 购物车
+            </Link>
+          </div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-8">
+        <div className="bg-blue-50 rounded-lg p-4 mb-8">
+          <p className="text-blue-800">
+            📚 每个视频配套一页纸游戏，支持A4/A5尺寸打印，普通纸/铜版纸选择
+          </p>
+        </div>
+
         <div className="flex gap-2 mb-8 flex-wrap">
           {categories.map(category => (
             <button
@@ -76,14 +82,14 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredVideos.map(video => (
-            <VideoCard key={video.id} video={video} />
+          {filteredProducts.map(product => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
-        {filteredVideos.length === 0 && (
+        {filteredProducts.length === 0 && (
           <div className="text-center py-20 text-gray-500">
-            暂无该分类视频
+            暂无该分类产品
           </div>
         )}
       </main>
