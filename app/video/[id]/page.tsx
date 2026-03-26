@@ -34,9 +34,10 @@ export default async function VideoPage({ params }: Props) {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="aspect-video bg-black">
             <iframe
-              src={`https://player.bilibili.com/player.html?bvid=${video.videoUrl.split('/').pop()}`}
+              src={`https://player.bilibili.com/player.html?bvid=${video.videoUrl.replace('https://www.bilibili.com/video/', '').replace('/', '')}`}
               className="w-full h-full"
               allowFullScreen
+              frameBorder="0"
             />
           </div>
           
