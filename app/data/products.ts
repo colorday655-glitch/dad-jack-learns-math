@@ -15,7 +15,7 @@ export const products: Product[] = [
     title: '把积木变平了 - 一页纸游戏',
     description: '适合小学1-3年级的空间思维训练游戏。包含影子配对、立体图形辨识等趣味练习。',
     videoId: '1',
-    thumbnail: 'https://i1.hdslb.com/bfs/archive/060e5b92785a28c4a1ce576d65829190443449a9.jpg',
+    thumbnail: '/images/1.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-1.pdf',
     category: '空间思维'
@@ -25,7 +25,7 @@ export const products: Product[] = [
     title: '等价交换入门 - 一页纸游戏',
     description: '帮助孩子理解价值交换逻辑的人民币游戏，适合1-3年级。',
     videoId: '2',
-    thumbnail: 'https://i0.hdslb.com/bfs/archive/f26c6fca6764dc875847353e99faead81fb34ea8.jpg',
+    thumbnail: '/images/2.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-2.pdf',
     category: '逻辑思维'
@@ -35,7 +35,7 @@ export const products: Product[] = [
     title: '周期性规律 - 一页纸游戏',
     description: '认识时间与周期的数学游戏，适合小学1-2年级。',
     videoId: '3',
-    thumbnail: 'https://i1.hdslb.com/bfs/archive/57a63b6324b0b6d8c89876852a2590badb42f0a2.jpg',
+    thumbnail: '/images/3.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-3.pdf',
     category: '逻辑思维'
@@ -45,7 +45,7 @@ export const products: Product[] = [
     title: '凑十法入门 - 一页纸游戏',
     description: '训练计算速度的凑十法练习游戏，适合1-2年级。',
     videoId: '4',
-    thumbnail: 'https://i2.hdslb.com/bfs/archive/27131e60de37d81b8ce22e5815d9ffe6121dc492.jpg',
+    thumbnail: '/images/4.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-4.pdf',
     category: '计算能力'
@@ -55,7 +55,7 @@ export const products: Product[] = [
     title: '进制逻辑入门 - 一页纸游戏',
     description: '理解数字结构的进制游戏，适合1-3年级。',
     videoId: '5',
-    thumbnail: 'https://i2.hdslb.com/bfs/archive/199e2267e43f222bc6b0e636625934370642c070.jpg',
+    thumbnail: '/images/5.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-5.pdf',
     category: '逻辑思维'
@@ -65,7 +65,7 @@ export const products: Product[] = [
     title: '模块化思维 - 一页纸游戏',
     description: '培养问题拆解能力的乐高式游戏，适合1-3年级。',
     videoId: '6',
-    thumbnail: 'https://i0.hdslb.com/bfs/archive/1e8adfc1bc570955c5daad4f2f7c275c459ece6f.jpg',
+    thumbnail: '/images/6.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-6.pdf',
     category: '解决问题'
@@ -75,7 +75,7 @@ export const products: Product[] = [
     title: '形状属性逻辑 - 一页纸游戏',
     description: '认识几何形状与功能的关系，适合1-3年级。',
     videoId: '7',
-    thumbnail: 'https://i1.hdslb.com/bfs/archive/710f01945b4c6506d44d8fccdd5ea0fc5ee910f2.jpg',
+    thumbnail: '/images/7.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-7.pdf',
     category: '空间思维'
@@ -85,7 +85,7 @@ export const products: Product[] = [
     title: '减法逻辑入门 - 一页纸游戏',
     description: '理解减法意义的差值寻找游戏，适合1-2年级。',
     videoId: '8',
-    thumbnail: 'https://i1.hdslb.com/bfs/archive/ef7496d5735c241eb7909e223201cc2d4273298b.jpg',
+    thumbnail: '/images/8.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-8.pdf',
     category: '计算能力'
@@ -95,7 +95,7 @@ export const products: Product[] = [
     title: '加法逻辑入门 - 一页纸游戏',
     description: '理解加法系统集成思维的游戏，适合1-2年级。',
     videoId: '9',
-    thumbnail: 'https://i2.hdslb.com/bfs/archive/00111d64275da864119faa1a591cc8754da4f237.jpg',
+    thumbnail: '/images/9.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-9.pdf',
     category: '计算能力'
@@ -105,7 +105,7 @@ export const products: Product[] = [
     title: '符号化思维 - 一页纸游戏',
     description: '训练信息压缩与抽象思维的数学游戏，适合1-3年级。',
     videoId: '10',
-    thumbnail: 'https://i0.hdslb.com/bfs/archive/d645cbb1878d551139011e61ade40195a58eb957.jpg',
+    thumbnail: '/images/10.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-10.pdf',
     category: '逻辑思维'
@@ -115,7 +115,7 @@ export const products: Product[] = [
     title: '坐标系定位 - 一页纸游戏',
     description: '建立空间索引能力的坐标游戏，适合1-3年级。',
     videoId: '11',
-    thumbnail: 'https://i2.hdslb.com/bfs/archive/9eb3dc04f6728335f7bd02c45ffd6a48745aa414.jpg',
+    thumbnail: '/images/11.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-11.pdf',
     category: '空间思维'
@@ -125,7 +125,7 @@ export const products: Product[] = [
     title: '相对性原理 - 一页纸游戏',
     description: '理解相对与比较的空间游戏，适合1-2年级。',
     videoId: '12',
-    thumbnail: 'https://i1.hdslb.com/bfs/archive/1cc5a4a7f7091ebb29e0d1c89d9da9e9729cb5af.jpg',
+    thumbnail: '/images/12.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-12.pdf',
     category: '空间思维'
@@ -135,7 +135,7 @@ export const products: Product[] = [
     title: '集合逻辑入门 - 一页纸游戏',
     description: '建立分类与集合思维的数学游戏，适合1-2年级。',
     videoId: '13',
-    thumbnail: 'https://i2.hdslb.com/bfs/archive/3bbfb4aa7cd027bb1a769c3245fa2680e8d1bfeb.jpg',
+    thumbnail: '/images/13.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-13.pdf',
     category: '逻辑思维'
