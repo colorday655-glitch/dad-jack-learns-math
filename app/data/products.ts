@@ -15,7 +15,7 @@ export const products: Product[] = [
     title: '把积木变平了 - 一页纸游戏',
     description: '适合小学1-3年级的空间思维训练游戏。包含影子配对、立体图形辨识等趣味练习。',
     videoId: '1',
-    thumbnail: 'http://i1.hdslb.com/bfs/archive/060e5b92785a28c4a1ce576d65829190443449a9.jpg',
+    thumbnail: 'https://i1.hdslb.com/bfs/archive/060e5b92785a28c4a1ce576d65829190443449a9.jpg',
     price: 9.9,
     pdfUrl: '/pdfs/game-1.pdf',
     category: '空间思维'
