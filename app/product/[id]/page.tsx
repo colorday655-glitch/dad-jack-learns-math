@@ -18,10 +18,10 @@ export default function ProductPage() {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">产品未找到</h1>
-          <Link href="/" className="text-blue-500 hover:underline">返回首页</Link>
+          <h1 className="text-xl font-bold mb-4">产品未找到</h1>
+          <Link href="/" className="text-blue-500">返回首页</Link>
         </div>
       </div>
     );
@@ -41,7 +41,7 @@ export default function ProductPage() {
       paper: selectedPaper,
       quantity: quantity,
       unitPrice: product.price + sizePrice + paperPrice,
-      totalPrice: totalPrice,
+      totalPrice,
     };
 
     if (typeof window !== 'undefined') {
@@ -56,141 +56,119 @@ export default function ProductPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-4">
-          <Link href="/" className="text-blue-500 hover:underline text-sm">
-            ← 返回产品列表
+      <header className="bg-white border-b">
+        <div className="max-w-3xl mx-auto px-4 py-3">
+          <Link href="/" className="text-blue-500 text-sm hover:underline">
+            ← 返回
           </Link>
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 py-6">
+      <main className="max-w-3xl mx-auto px-4 py-5">
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-2/5">
-              <img
-                src={product.thumbnail}
-                alt={product.title}
-                className="w-full h-full object-cover"
-                style={{ minHeight: '300px' }}
-              />
-            </div>
-            
-            <div className="md:w-3/5 p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
+          <div className="p-5">
+            <div className="flex gap-5">
+              <div className="w-1/3 flex-shrink-0">
+                <img
+                  src={product.thumbnail}
+                  alt={product.title}
+                  className="w-full rounded-lg"
+                  style={{ aspectRatio: '16/9' }}
+                />
+              </div>
+              
+              <div className="flex-1">
+                <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
                   {product.category}
                 </span>
-              </div>
-              
-              <h1 className="text-xl font-bold text-gray-800 mb-2">
-                {product.title}
-              </h1>
-              
-              <p className="text-gray-500 text-sm mb-6">
-                {product.description}
-              </p>
-
-              <div className="space-y-4">
-                <div>
-                  <div className="text-xs text-gray-500 mb-2">尺寸</div>
-                  <div className="flex gap-2">
-                    {printOptions.sizes.map((size: any) => (
-                      <button
-                        key={size.id}
-                        onClick={() => setSelectedSize(size.id)}
-                        className={`flex-1 py-2 rounded-lg border text-sm font-medium transition-all ${
-                          selectedSize === size.id 
-                            ? 'border-blue-500 bg-blue-50 text-blue-700' 
-                            : 'border-gray-200 text-gray-600 hover:border-gray-300'
-                        }`}
-                      >
-                        {size.name}
-                        <span className="ml-1 text-xs">
-                          {size.price > 0 ? `+¥${size.price}` : size.price < 0 ? `-¥${Math.abs(size.price)}` : ''}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <div className="text-xs text-gray-500 mb-2">纸质</div>
-                  <div className="flex gap-2">
-                    {printOptions.paper.map((paper: any) => (
-                      <button
-                        key={paper.id}
-                        onClick={() => setSelectedPaper(paper.id)}
-                        className={`flex-1 py-2 rounded-lg border text-sm font-medium transition-all ${
-                          selectedPaper === paper.id 
-                            ? 'border-blue-500 bg-blue-50 text-blue-700' 
-                            : 'border-gray-200 text-gray-600 hover:border-gray-300'
-                        }`}
-                      >
-                        {paper.name}
-                        {paper.price > 0 && <span className="ml-1 text-xs">+¥{paper.price}</span>}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <div className="text-xs text-gray-500 mb-2">数量</div>
-                  <select 
-                    value={quantity}
-                    onChange={(e) => setQuantity(Number(e.target.value))}
-                    className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm"
-                  >
-                    {printOptions.quantity.map((q: any) => (
-                      <option key={q} value={q}>{q} 份</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-gray-100">
-                <div className="flex justify-between items-center mb-4">
-                  <div>
-                    <span className="text-xs text-gray-500">单价</span>
-                    <div className="text-lg font-bold text-orange-500">¥{product.price + sizePrice + paperPrice}</div>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-xs text-gray-500">总计</span>
-                    <div className="text-2xl font-bold text-orange-500">¥{totalPrice}</div>
-                  </div>
-                </div>
                 
-                <button
-                  onClick={addToCart}
-                  disabled={adding}
-                  className={`w-full py-3 rounded-xl font-medium transition-all ${
-                    adding 
-                      ? 'bg-green-500 text-white' 
-                      : 'bg-orange-500 text-white hover:bg-orange-600 active:scale-98'
-                  }`}
-                >
-                  {adding ? '✓ 已加入购物车' : '🛒 加入购物车'}
-                </button>
+                <h1 className="text-lg font-bold text-gray-800 mt-2 mb-1">
+                  {product.title}
+                </h1>
+                
+                <p className="text-sm text-gray-500 mb-4 line-clamp-2">
+                  {product.description}
+                </p>
+
+                <div className="space-y-3">
+                  <div>
+                    <div className="text-xs text-gray-400 mb-1">尺寸</div>
+                    <div className="flex gap-2">
+                      {printOptions.sizes.map((size: any) => (
+                        <button
+                          key={size.id}
+                          onClick={() => setSelectedSize(size.id)}
+                          className={`px-3 py-1.5 rounded text-sm ${
+                            selectedSize === size.id 
+                              ? 'bg-blue-500 text-white' 
+                              : 'bg-gray-100 text-gray-600'
+                          }`}
+                        >
+                          {size.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-xs text-gray-400 mb-1">纸质</div>
+                    <div className="flex gap-2">
+                      {printOptions.paper.map((paper: any) => (
+                        <button
+                          key={paper.id}
+                          onClick={() => setSelectedPaper(paper.id)}
+                          className={`px-3 py-1.5 rounded text-sm ${
+                            selectedPaper === paper.id 
+                              ? 'bg-blue-500 text-white' 
+                              : 'bg-gray-100 text-gray-600'
+                          }`}
+                        >
+                          {paper.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-xs text-gray-400 mb-1">数量</div>
+                    <select 
+                      value={quantity}
+                      onChange={(e) => setQuantity(Number(e.target.value))}
+                      className="border rounded px-2 py-1.5 text-sm"
+                    >
+                      {printOptions.quantity.map((q: any) => (
+                        <option key={q} value={q}>{q} 份</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="mt-6 bg-white rounded-xl shadow-sm p-5">
-          <h2 className="text-sm font-medium text-gray-800 mb-3">📋 产品说明</h2>
-          <div className="grid grid-cols-2 gap-2 text-xs text-gray-500">
-            <span>✓ 对应视频课程</span>
-            <span>✓ PDF格式下载</span>
-            <span>✓ 支持A4/A5打印</span>
-            <span>✓ 多种纸张选择</span>
+            <div className="mt-5 pt-4 border-t flex items-center justify-between">
+              <div>
+                <span className="text-xs text-gray-400">总价</span>
+                <div className="text-xl font-bold text-orange-500">¥{totalPrice}</div>
+              </div>
+              
+              <button
+                onClick={addToCart}
+                disabled={adding}
+                className={`px-6 py-2.5 rounded-lg font-medium text-sm ${
+                  adding 
+                    ? 'bg-green-500 text-white' 
+                    : 'bg-orange-500 text-white hover:bg-orange-600'
+                }`}
+              >
+                {adding ? '✓ 已加入' : '加入购物车'}
+              </button>
+            </div>
           </div>
         </div>
       </main>
 
-      <footer className="bg-white border-t mt-8">
-        <div className="max-w-4xl mx-auto px-4 py-4 text-center text-gray-400 text-xs">
-          © 2024 Jack爸爸学数学
-        </div>
+      <footer className="text-center py-4 text-gray-400 text-xs">
+        © 2024 Jack爸爸学数学
       </footer>
     </div>
   );
