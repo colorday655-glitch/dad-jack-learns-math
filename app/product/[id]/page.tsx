@@ -14,19 +14,21 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: '1', title: '把积木变平了', description: '空间思维训练游戏', category: '空间思维', thumbnail: '/images/1.jpg', price: 9.9 },
-  { id: '2', title: '等价交换入门', description: '逻辑思维训练', category: '逻辑思维', thumbnail: '/images/2.jpg', price: 9.9 },
-  { id: '3', title: '周期性规律', description: '逻辑思维训练', category: '逻辑思维', thumbnail: '/images/3.jpg', price: 9.9 },
-  { id: '4', title: '凑十法入门', description: '计算能力训练', category: '计算能力', thumbnail: '/images/4.jpg', price: 9.9 },
-  { id: '5', title: '进制逻辑入门', description: '逻辑思维训练', category: '逻辑思维', thumbnail: '/images/5.jpg', price: 9.9 },
-  { id: '6', title: '模块化思维', description: '解决问题训练', category: '解决问题', thumbnail: '/images/6.jpg', price: 9.9 },
-  { id: '7', title: '形状属性逻辑', description: '空间思维训练', category: '空间思维', thumbnail: '/images/7.jpg', price: 9.9 },
-  { id: '8', title: '减法逻辑入门', description: '计算能力训练', category: '计算能力', thumbnail: '/images/8.jpg', price: 9.9 },
-  { id: '9', title: '加法逻辑入门', description: '计算能力训练', category: '计算能力', thumbnail: '/images/9.jpg', price: 9.9 },
-  { id: '10', title: '符号化思维', description: '逻辑思维训练', category: '逻辑思维', thumbnail: '/images/10.jpg', price: 9.9 },
-  { id: '11', title: '坐标系定位', description: '空间思维训练', category: '空间思维', thumbnail: '/images/11.jpg', price: 9.9 },
-  { id: '12', title: '相对性原理', description: '空间思维训练', category: '空间思维', thumbnail: '/images/12.jpg', price: 9.9 },
-  { id: '13', title: '集合逻辑入门', description: '逻辑思维训练', category: '逻辑思维', thumbnail: '/images/13.jpg', price: 9.9 },
+  { id: 'G101', title: '集合逻辑入门', description: '建立分类与集合思维的数学游戏，适合1-2年级。', category: '逻辑思维', thumbnail: '/images/G101.svg', price: 9.9 },
+  { id: 'G102', title: '相对性原理', description: '理解相对与比较的空间游戏，适合1-2年级。', category: '空间思维', thumbnail: '/images/G102.svg', price: 9.9 },
+  { id: 'G103', title: '坐标系定位', description: '建立空间索引能力的坐标游戏，适合1-3年级。', category: '空间思维', thumbnail: '/images/G103.svg', price: 9.9 },
+  { id: 'G104', title: '符号化思维', description: '训练信息压缩与抽象思维的数学游戏，适合1-3年级。', category: '逻辑思维', thumbnail: '/images/G104.svg', price: 9.9 },
+  { id: 'G105', title: '加法逻辑入门', description: '理解加法系统集成思维的游戏，适合1-2年级。', category: '计算能力', thumbnail: '/images/G105.svg', price: 9.9 },
+  { id: 'G106', title: '减法逻辑入门', description: '理解减法意义的差值寻找游戏，适合1-2年级。', category: '计算能力', thumbnail: '/images/G106.svg', price: 9.9 },
+  { id: 'G107', title: '形状属性逻辑', description: '认识几何形状与功能的关系，适合1-3年级。', category: '空间思维', thumbnail: '/images/G107.svg', price: 9.9 },
+  { id: 'G108', title: '模块化思维', description: '培养问题拆解能力的乐高式游戏，适合1-3年级。', category: '解决问题', thumbnail: '/images/G108.svg', price: 9.9 },
+  { id: 'G109', title: '进制逻辑入门', description: '理解数字结构的进制游戏，适合1-3年级。', category: '逻辑思维', thumbnail: '/images/G109.svg', price: 9.9 },
+  { id: 'G110', title: '凑十法入门', description: '训练计算速度的凑十法练习游戏，适合1-2年级。', category: '计算能力', thumbnail: '/images/G110.svg', price: 9.9 },
+  { id: 'G111', title: '周期性规律', description: '认识时间与周期的数学游戏，适合小学1-2年级。', category: '逻辑思维', thumbnail: '/images/G111.svg', price: 9.9 },
+  { id: 'G112', title: '等价交换入门', description: '帮助孩子理解价值交换逻辑的人民币游戏，适合1-3年级。', category: '逻辑思维', thumbnail: '/images/G112.svg', price: 9.9 },
+  { id: 'G201', title: '把积木变平了', description: '适合小学1-3年级的空间思维训练游戏。包含影子配对、立体图形辨识等趣味练习。', category: '空间思维', thumbnail: '/images/G201.svg', price: 9.9 },
+  { id: 'G202', title: '七块板的魔法', description: '拼图与空间想象力的游戏，适合1-3年级。', category: '空间思维', thumbnail: '/images/G202.svg', price: 9.9 },
+  { id: 'G203', title: '最听话的正方形', description: '对称与旋转的空间思维游戏，适合1-3年级。', category: '空间思维', thumbnail: '/images/G203.svg', price: 9.9 },
 ];
 
 const sizes = [
