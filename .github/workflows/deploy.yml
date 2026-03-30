@@ -1,33 +1,61 @@
-name: Deploy to VPS
+name: CI/CD Pipeline
 
 on:
   push:
     branches: [main]
-  workflow_dispatch:
+  pull_request:
+    branches: [main]
 
 jobs:
-  deploy:
+  # 代码检查和测试
+  lint-and-test:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
+          cache: 'npm'
+
       - name: Install dependencies
-        run: |
-          npm ci
-      
-      - name: Build
-        run: |
-          npm run build
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint || true
+
+      - name: Build project
+        run: npm run build
         env:
           NODE_OPTIONS: '--max-old-space-size=4096'
-      
+
+  # 部署到 VPS
+  deploy:
+    needs: lint-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
+
       - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -40,6 +68,10 @@ jobs:
             git pull origin main
             npm install
             npm run build
-            
-            # Restart Next.js service
             pm2 restart dad-jack || pm2 start npm --name dad-jack -- run start -- --port 3003
+            pm2 save
+
+      - name: Verify deployment
+        run: |
+          sleep 5
+          curl -f http://${{ secrets.VPS_HOST }} || exit 1
