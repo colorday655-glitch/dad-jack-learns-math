@@ -18,7 +18,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1kTXsBuEqU/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i1.hdslb.com/bfs/archive/060e5b92785a28c4a1ce576d65829190443449a9.jpg',
+    thumbnail: '/images/videos/video1.jpg',
     duration: '01:23',
     publishDate: '2024-01-15'
   },
@@ -29,29 +29,29 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1sGAKzJEK8/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i0.hdslb.com/bfs/archive/f26c6fca6764dc875847353e99faead81fb34ea8.jpg',
+    thumbnail: '/images/videos/video2.jpg',
     duration: '01:42',
     publishDate: '2024-01-20'
   },
   {
     id: '3',
     title: '周期性规律｜认识钟表逻辑',
-    description: 'Jack爸爸学数学，专注小学数学思维。本期讲周期性规律，从时间刻度理解宇宙节奏。适合：小学1-2年级、没有时间感的孩子。',
+    description: 'Jack爸爸学数学，专注小学数学思维。本期讲周期性规律，从时间刻度理解宇宙节奏。适合：小学1-2年级，没有时间感的孩子。',
     videoUrl: 'https://www.bilibili.com/video/BV13GAAzXEXi/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i1.hdslb.com/bfs/archive/57a63b6324b0b6d8c89876852a2590badb42f0a2.jpg',
+    thumbnail: '/images/videos/video3.jpg',
     duration: '01:32',
     publishDate: '2024-02-01'
   },
   {
     id: '4',
     title: '凑十法入门｜算法优化提速',
-    description: 'Jack爸爸学数学，专注逻辑思维训练。本期讲凑十法，教孩子用算法优化思维实现计算提速。适合：小学1-2年级、做加法数指头的孩子。',
+    description: 'Jack爸爸学数学，专注逻辑思维训练。本期讲凑十法，教孩子用算法优化思维实现计算提速。适合：小学1-2年级，做加法数指头的孩子。',
     videoUrl: 'https://www.bilibili.com/video/BV1aQAcz7Ece/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i2.hdslb.com/bfs/archive/27131e60de37d81b8ce22e5815d9ffe6121dc492.jpg',
+    thumbnail: '/images/videos/video4.jpg',
     duration: '01:34',
     publishDate: '2024-02-10'
   },
@@ -62,7 +62,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV13gAczjEEH/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i2.hdslb.com/bfs/archive/199e2267e43f222bc6b0e636625934370642c070.jpg',
+    thumbnail: '/images/videos/video5.jpg',
     duration: '01:46',
     publishDate: '2024-02-15'
   },
@@ -73,7 +73,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1jXAEz6EQc/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i0.hdslb.com/bfs/archive/1e8adfc1bc570955c5daad4f2f7c275c459ece6f.jpg',
+    thumbnail: '/images/videos/video6.jpg',
     duration: '02:25',
     publishDate: '2024-02-20'
   },
@@ -84,7 +84,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1xwwzzGEgB/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i1.hdslb.com/bfs/archive/710f01945b4c6506d44d8fccdd5ea0fc5ee910f2.jpg',
+    thumbnail: '/images/videos/video7.jpg',
     duration: '02:49',
     publishDate: '2024-03-01'
   },
@@ -95,7 +95,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1E4w3zHEKT/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i1.hdslb.com/bfs/archive/ef7496d5735c241eb7909e223201cc2d4273298b.jpg',
+    thumbnail: '/images/videos/video8.jpg',
     duration: '03:25',
     publishDate: '2024-03-10'
   },
@@ -106,7 +106,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1DswWzuEWE/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i2.hdslb.com/bfs/archive/00111d64275da864119faa1a591cc8754da4f237.jpg',
+    thumbnail: '/images/videos/video9.jpg',
     duration: '04:32',
     publishDate: '2024-03-15'
   },
@@ -117,7 +117,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1UbwczuEvA/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i0.hdslb.com/bfs/archive/d645cbb1878d551139011e61ade40195a58eb957.jpg',
+    thumbnail: '/images/videos/video10.jpg',
     duration: '04:49',
     publishDate: '2024-03-20'
   },
@@ -128,7 +128,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1GpcQzpES4/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i2.hdslb.com/bfs/archive/9eb3dc04f6728335f7bd02c45ffd6a48745aa414.jpg',
+    thumbnail: '/images/videos/video11.jpg',
     duration: '04:33',
     publishDate: '2024-03-25'
   },
@@ -139,7 +139,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV17kPXzuEuM/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i1.hdslb.com/bfs/archive/1cc5a4a7f7091ebb29e0d1c89d9da9e9729cb5af.jpg',
+    thumbnail: '/images/videos/video12.jpg',
     duration: '05:35',
     publishDate: '2024-04-01'
   },
@@ -150,7 +150,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1QWNgzLE44/',
     platform: 'bilibili',
     category: '小学',
-    thumbnail: 'http://i2.hdslb.com/bfs/archive/3bbfb4aa7cd027bb1a769c3245fa2680e8d1bfeb.jpg',
+    thumbnail: '/images/videos/video13.jpg',
     duration: '03:40',
     publishDate: '2024-04-10'
   }
