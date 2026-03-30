@@ -48,12 +48,13 @@ jobs:
       - name: Build
         run: bun run build
 
-      - name: Deploy to VPS via RSYNC
-        uses: burnett01/rsync-deployments@v5.2
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.0
         with:
-          switches: -avz --delete
-          path: ./
-          remote_path: /var/www/dad-jack-learns-math
-          remote_host: ${{ secrets.VPS_HOST }}
-          remote_user: ${{ secrets.VPS_USER }}
-          remote_key: ${{ secrets.VPS_KEY }}
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_KEY }}
+          script: |
+            cd /var/www
+            mkdir -p dad-jack-learns-math
+            ls -la
