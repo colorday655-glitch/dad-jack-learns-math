@@ -73,12 +73,13 @@ export default function Home() {
 
       <main className="max-w-6xl mx-auto px-6 py-10">
         <div className="glass rounded-2xl p-6 mb-10 gradient-border">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-2xl">📚</span>
-            <p className="text-slate-200">
-              每个视频配套一页纸游戏，支持A4/A5尺寸打印，普通纸/铜版纸选择
-            </p>
-          </div>
+      <div className="flex items-center gap-3 mb-2">
+          <span className="text-2xl">📚</span>
+          <p className="text-slate-200">每个视频配套一页纸游戏，支持A4/A5尺寸打印，普通纸/铜版纸选择</p>
+        </div>
+        <div className="mt-4 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl p-4 border border-green-500/30">
+          <p className="text-green-300 text-center font-medium">🎉 全流程测试中 - ROS-4</p>
+        </div>
         </div>
 
         <div className="flex gap-3 mb-10 flex-wrap">
