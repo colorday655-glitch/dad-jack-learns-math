@@ -7,8 +7,9 @@ on:
     branches: [main]
 
 jobs:
-  lint-build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     
     steps:
       - name: Checkout code
@@ -28,39 +29,16 @@ jobs:
       - name: Build
         run: bun run build
 
-      - name: Create artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: .next
-          retention-days: 1
-
-  deploy:
-    needs: lint-build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: .next
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-
       - name: Deploy to VPS via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_KEY }}
-          source: ".next/,app/,public/,package.json,next.config.js,tsconfig.json,postcss.config.mjs"
+          source: ".next,app,public,package.json,next.config.js,tsconfig.json,postcss.config.mjs,bun.lock"
           target: /var/www/dad-jack-learns-math
           strip_components: 0
+          overwrite: true
 
       - name: Install and start on VPS
         uses: appleboy/ssh-action@v1.0.0
@@ -70,11 +48,8 @@ jobs:
           password: ${{ secrets.VPS_KEY }}
           script: |
             cd /var/www/dad-jack-learns-math
-            # Kill existing Next.js process
             pkill -f "next start" || true
-            # Install dependencies
             bun install
-            # Start Next.js
-            bun run start &
-            sleep 5
-            echo "Deployed!"
+            nohup bun run start > /tmp/nextjs.log 2>&1 &
+            sleep 3
+            curl -s http://localhost:3000 | head -c 500
