@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -49,8 +49,18 @@ export default function ProductPage() {
   const [selectedSize, setSelectedSize] = useState('a4');
   const [selectedPaper, setSelectedPaper] = useState('normal');
   const [added, setAdded] = useState(false);
+  const [customImage, setCustomImage] = useState<string | null>(null);
 
   const product = products.find(p => p.id === id);
+
+  useEffect(() => {
+    if (id) {
+      const uploaded = localStorage.getItem(`game_${id}`);
+      if (uploaded) {
+        setCustomImage(uploaded);
+      }
+    }
+  }, [id]);
 
   if (!product) {
     return (
@@ -112,7 +122,7 @@ export default function ProductPage() {
         {/* Product Image */}
         <div className="bg-gray-50 rounded-xl p-8 mb-6">
           <img 
-            src={product.thumbnail} 
+            src={customImage || product.thumbnail} 
             alt={product.title}
             className="w-full max-h-80 object-contain"
           />
