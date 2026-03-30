@@ -52,10 +52,13 @@ export default function ProductPage() {
 
   if (!product) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ textAlign: 'center' }}>
-          <h1 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '16px' }}>产品未找到</h1>
-          <Link href="/" style={{ color: '#3b82f6' }}>返回首页</Link>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="glass rounded-2xl p-8 text-center">
+          <div className="text-6xl mb-4">🔍</div>
+          <h1 className="text-2xl font-bold text-white mb-4">产品未找到</h1>
+          <Link href="/" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+            ← 返回产品列表
+          </Link>
         </div>
       </div>
     );
@@ -70,10 +73,12 @@ export default function ProductPage() {
       productId: product.id,
       title: product.title,
       thumbnail: product.thumbnail,
+      basePrice: product.price,
       size: selectedSize,
       paper: selectedPaper,
       quantity: quantity,
-      total: total,
+      unitPrice: product.price + sizePrice + paperPrice,
+      totalPrice: total,
     };
     
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -85,48 +90,57 @@ export default function ProductPage() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f9fafb' }}>
-      <header style={{ background: 'white', borderBottom: '1px solid #e5e7eb', padding: '12px 16px' }}>
-        <Link href="/" style={{ color: '#3b82f6', fontSize: '14px' }}>← 返回产品列表</Link>
+    <div className="min-h-screen">
+      <header className="glass sticky top-0 z-50">
+        <div className="max-w-md mx-auto px-5 py-4">
+          <Link 
+            href="/" 
+            className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            返回产品列表
+          </Link>
+        </div>
       </header>
 
-      <main style={{ maxWidth: '400px', margin: '0 auto', padding: '16px' }}>
-        <div style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-          <img 
-            src={product.thumbnail} 
-            alt={product.title}
-            style={{ width: '100%', display: 'block' }}
-          />
+      <main className="max-w-md mx-auto px-5 py-8">
+        <div className="glass rounded-2xl overflow-hidden">
+          <div className="relative">
+            <img 
+              src={product.thumbnail} 
+              alt={product.title}
+              className="w-full block"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          </div>
           
-          <div style={{ padding: '16px' }}>
-            <span style={{ fontSize: '12px', background: '#dbeafe', color: '#1d4ed8', padding: '2px 8px', borderRadius: '4px' }}>
+          <div className="p-6">
+            <span className="inline-block text-xs bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full border border-indigo-500/30">
               {product.category}
             </span>
             
-            <h1 style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937', marginTop: '8px' }}>
+            <h1 className="text-xl font-bold text-white mt-3">
               {product.title}
             </h1>
             
-            <p style={{ fontSize: '14px', color: '#6b7280', marginTop: '4px' }}>
+            <p className="text-sm text-slate-400 mt-2">
               {product.description}
             </p>
 
-            <div style={{ marginTop: '20px' }}>
-              <div style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px' }}>尺寸</div>
-              <div style={{ display: 'flex', gap: '8px' }}>
+            <div className="mt-6">
+              <div className="text-xs text-slate-500 mb-3">📐 尺寸</div>
+              <div className="flex gap-3">
                 {sizes.map(size => (
                   <button
                     key={size.id}
                     onClick={() => setSelectedSize(size.id)}
-                    style={{
-                      flex: 1,
-                      padding: '8px',
-                      borderRadius: '8px',
-                      border: selectedSize === size.id ? 'none' : '1px solid #e5e7eb',
-                      background: selectedSize === size.id ? '#3b82f6' : '#f3f4f6',
-                      color: selectedSize === size.id ? 'white' : '#4b5563',
-                      fontSize: '14px',
-                    }}
+                    className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all ${
+                      selectedSize === size.id
+                        ? 'bg-gradient-to-r from-indigo-500 to-cyan-500 text-white shadow-lg shadow-indigo-500/30'
+                        : 'glass text-slate-300 hover:bg-indigo-500/20'
+                    }`}
                   >
                     {size.name}
                   </button>
@@ -134,22 +148,18 @@ export default function ProductPage() {
               </div>
             </div>
 
-            <div style={{ marginTop: '16px' }}>
-              <div style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px' }}>纸质</div>
-              <div style={{ display: 'flex', gap: '8px' }}>
+            <div className="mt-5">
+              <div className="text-xs text-slate-500 mb-3">📄 纸质</div>
+              <div className="flex gap-3">
                 {papers.map(paper => (
                   <button
                     key={paper.id}
                     onClick={() => setSelectedPaper(paper.id)}
-                    style={{
-                      flex: 1,
-                      padding: '8px',
-                      borderRadius: '8px',
-                      border: selectedPaper === paper.id ? 'none' : '1px solid #e5e7eb',
-                      background: selectedPaper === paper.id ? '#3b82f6' : '#f3f4f6',
-                      color: selectedPaper === paper.id ? 'white' : '#4b5563',
-                      fontSize: '14px',
-                    }}
+                    className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all ${
+                      selectedPaper === paper.id
+                        ? 'bg-gradient-to-r from-indigo-500 to-cyan-500 text-white shadow-lg shadow-indigo-500/30'
+                        : 'glass text-slate-300 hover:bg-indigo-500/20'
+                    }`}
                   >
                     {paper.name}
                   </button>
@@ -157,45 +167,41 @@ export default function ProductPage() {
               </div>
             </div>
 
-            <div style={{ marginTop: '16px' }}>
-              <div style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px' }}>数量</div>
+            <div className="mt-5">
+              <div className="text-xs text-slate-500 mb-3">🔢 数量</div>
               <select 
                 value={quantity}
                 onChange={(e) => setQuantity(Number(e.target.value))}
-                style={{ width: '100%', padding: '8px', borderRadius: '8px', border: '1px solid #e5e7eb', fontSize: '14px' }}
+                className="w-full glass bg-indigo-500/10 border border-indigo-500/20 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-indigo-500"
               >
                 {[1,2,3,4,5,10,20].map(q => (
-                  <option key={q} value={q}>{q} 份</option>
+                  <option key={q} value={q} className="bg-slate-800">{q} 份</option>
                 ))}
               </select>
             </div>
 
-            <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div className="mt-6 pt-6 border-t border-indigo-500/20 flex items-center justify-between">
               <div>
-                <div style={{ fontSize: '12px', color: '#9ca3af' }}>总计</div>
-                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#f97316' }}>¥{total}</div>
+                <div className="text-xs text-slate-500">总计</div>
+                <div className="text-3xl font-bold gradient-text">¥{total}</div>
               </div>
               
               <button
                 onClick={handleAddToCart}
-                style={{
-                  padding: '12px 24px',
-                  borderRadius: '8px',
-                  background: added ? '#22c55e' : '#f97316',
-                  color: 'white',
-                  fontSize: '14px',
-                  fontWeight: '500',
-                  border: 'none',
-                }}
+                className={`px-8 py-3 rounded-xl font-medium transition-all hover:-translate-y-1 ${
+                  added 
+                    ? 'bg-green-500 text-white shadow-lg shadow-green-500/30' 
+                    : 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-indigo-500/30'
+                }`}
               >
-                {added ? '✓ 已加入' : '加入购物车'}
+                {added ? '✓ 已加入' : '🛒 加入购物车'}
               </button>
             </div>
           </div>
         </div>
       </main>
 
-      <footer style={{ textAlign: 'center', padding: '16px', color: '#9ca3af', fontSize: '12px' }}>
+      <footer className="text-center py-6 text-slate-500 text-sm">
         © 2024 Jack爸爸学数学
       </footer>
     </div>
