@@ -1,30 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  /* 主色调 - Print.com 风格 */
   --primary: #1E40AF;
   --primary-light: #3B82F6;
   --secondary: #F59E0B;
   --secondary-light: #FBBF24;
   
-  /* 背景 */
   --bg-white: #FFFFFF;
   --bg-light: #F8FAFC;
   --bg-gray: #F1F5F9;
   
-  /* 文字 */
   --text-dark: #1E293B;
   --text-gray: #64748B;
   --text-light: #94A3B8;
   
-  /* 功能色 */
   --success: #10B981;
   --warning: #F59E0B;
   --error: #EF4444;
 }
 
 @theme inline {
-  --color-background: var(--bg-light);
+  --color-background: var(--bg-white);
   --color-foreground: var(--text-dark);
 }
 
@@ -33,26 +29,12 @@
 }
 
 body {
-  background: var(--bg-light);
+  background: var(--bg-white);
   color: var(--text-dark);
   font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   min-height: 100vh;
-}
-
-.glass {
-  background: var(--bg-white);
-  border: 1px solid var(--bg-gray);
-}
-
-.glow {
-  box-shadow: 0 10px 40px rgba(30, 64, 175, 0.15);
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @keyframes float {
@@ -62,13 +44,4 @@ body {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }

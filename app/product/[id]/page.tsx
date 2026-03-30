@@ -54,11 +54,11 @@ export default function ProductPage() {
 
   if (!product) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="glass rounded-2xl p-8 text-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
           <div className="text-6xl mb-4">🔍</div>
           <h1 className="text-2xl font-bold text-gray-800 mb-4">产品未找到</h1>
-          <Link href="/" className="text-blue-700 hover:text-blue-800 transition-colors">
+          <Link href="/" className="text-blue-700 hover:text-blue-800 font-medium">
             ← 返回产品列表
           </Link>
         </div>
@@ -92,12 +92,13 @@ export default function ProductPage() {
   };
 
   return (
-    <div className="min-h-screen">
-      <header className="glass sticky top-0 z-50">
-        <div className="max-w-md mx-auto px-5 py-4">
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-2xl mx-auto px-4 py-3">
           <Link 
             href="/" 
-            className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-800 transition-colors"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-700 font-medium"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -107,103 +108,109 @@ export default function ProductPage() {
         </div>
       </header>
 
-      <main className="max-w-md mx-auto px-5 py-8">
-        <div className="glass rounded-2xl overflow-hidden">
-          <div className="relative">
-            <img 
-              src={product.thumbnail} 
-              alt={product.title}
-              className="w-full block"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+      <main className="max-w-2xl mx-auto px-4 py-8">
+        {/* Product Image */}
+        <div className="bg-gray-50 rounded-xl p-8 mb-6">
+          <img 
+            src={product.thumbnail} 
+            alt={product.title}
+            className="w-full max-h-80 object-contain"
+          />
+        </div>
+        
+        {/* Product Info */}
+        <div className="mb-6">
+          <span className="inline-block text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-md font-medium">
+            {product.category}
+          </span>
+          
+          <h1 className="text-2xl font-bold text-gray-800 mt-3">
+            {product.title}
+          </h1>
+          
+          <p className="text-gray-500 mt-2">
+            {product.description}
+          </p>
+        </div>
+
+        {/* Options */}
+        <div className="space-y-4">
+          {/* Size */}
+          <div>
+            <div className="text-sm font-medium text-gray-700 mb-2">📐 尺寸</div>
+            <div className="flex gap-3">
+              {sizes.map(size => (
+                <button
+                  key={size.id}
+                  onClick={() => setSelectedSize(size.id)}
+                  className={`flex-1 py-3 rounded-lg text-sm font-medium transition-all ${
+                    selectedSize === size.id
+                      ? 'bg-blue-700 text-white'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {size.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Paper */}
+          <div>
+            <div className="text-sm font-medium text-gray-700 mb-2">📄 纸质</div>
+            <div className="flex gap-3">
+              {papers.map(paper => (
+                <button
+                  key={paper.id}
+                  onClick={() => setSelectedPaper(paper.id)}
+                  className={`flex-1 py-3 rounded-lg text-sm font-medium transition-all ${
+                    selectedPaper === paper.id
+                      ? 'bg-blue-700 text-white'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {paper.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Quantity */}
+          <div>
+            <div className="text-sm font-medium text-gray-700 mb-2">🔢 数量</div>
+            <select 
+              value={quantity}
+              onChange={(e) => setQuantity(Number(e.target.value))}
+              className="w-full bg-gray-100 border border-gray-200 rounded-lg py-3 px-4 text-gray-800 focus:outline-none focus:border-blue-700"
+            >
+              {[1,2,3,4,5,10,20].map(q => (
+                <option key={q} value={q}>{q} 份</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* Price & Add to Cart */}
+        <div className="mt-6 pt-6 border-t border-gray-200 flex items-center justify-between">
+          <div>
+            <div className="text-sm text-gray-500">总计</div>
+            <div className="text-3xl font-bold text-blue-700">¥{total}</div>
           </div>
           
-          <div className="p-6">
-            <span className="inline-block text-xs bg-blue-800/20 text-blue-200 px-3 py-1 rounded-full border border-blue-800/30">
-              {product.category}
-            </span>
-            
-            <h1 className="text-xl font-bold text-gray-800 mt-3">
-              {product.title}
-            </h1>
-            
-            <p className="text-sm text-gray-500 mt-2">
-              {product.description}
-            </p>
-
-            <div className="mt-6">
-              <div className="text-xs text-gray-500 mb-3">📐 尺寸</div>
-              <div className="flex gap-3">
-                {sizes.map(size => (
-                  <button
-                    key={size.id}
-                    onClick={() => setSelectedSize(size.id)}
-                    className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all ${
-                      selectedSize === size.id
-                        ? 'bg-gradient-to-r from-blue-800 to-amber-500 text-white shadow-lg shadow-blue-800/30'
-                        : 'glass text-gray-600 hover:bg-blue-800/20'
-                    }`}
-                  >
-                    {size.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-5">
-              <div className="text-xs text-gray-500 mb-3">📄 纸质</div>
-              <div className="flex gap-3">
-                {papers.map(paper => (
-                  <button
-                    key={paper.id}
-                    onClick={() => setSelectedPaper(paper.id)}
-                    className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all ${
-                      selectedPaper === paper.id
-                        ? 'bg-gradient-to-r from-blue-800 to-amber-500 text-white shadow-lg shadow-blue-800/30'
-                        : 'glass text-gray-600 hover:bg-blue-800/20'
-                    }`}
-                  >
-                    {paper.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-5">
-              <div className="text-xs text-gray-500 mb-3">🔢 数量</div>
-              <select 
-                value={quantity}
-                onChange={(e) => setQuantity(Number(e.target.value))}
-                className="w-full glass bg-blue-800/10 border border-blue-800/20 rounded-xl py-3 px-4 text-gray-800 focus:outline-none focus:border-blue-800"
-              >
-                {[1,2,3,4,5,10,20].map(q => (
-                  <option key={q} value={q} className="bg-white">{q} 份</option>
-                ))}
-              </select>
-            </div>
-
-            <div className="mt-6 pt-6 border-t border-gray-200 flex items-center justify-between">
-              <div>
-                <div className="text-xs text-gray-500">总计</div>
-                <div className="text-3xl font-bold gradient-text">¥{total}</div>
-              </div>
-              
-              <button
-                onClick={handleAddToCart}
-                className={`px-8 py-3 rounded-xl font-medium transition-all hover:-translate-y-1 ${
-                  added 
-                    ? 'bg-green-500 text-white shadow-lg shadow-green-500/30' 
-                    : 'bg-gradient-to-r from-blue-800 to-blue-600 text-white shadow-lg shadow-blue-800/30'
-                }`}
-              >
-                {added ? '✓ 已加入' : '🛒 加入购物车'}
-              </button>
-            </div>
-          </div>
+          <button
+            onClick={handleAddToCart}
+            className={`px-8 py-3 rounded-lg font-medium transition-all ${
+              added 
+                ? 'bg-green-500 text-white' 
+                : 'bg-blue-700 hover:bg-blue-800 text-white'
+            }`}
+          >
+            {added ? '✓ 已加入' : '🛒 加入购物车'}
+          </button>
         </div>
       </main>
 
-      <footer className="text-center py-6 text-gray-500 text-sm">
+      <footer className="text-center py-6 text-gray-400 text-sm">
         © 2024 Jack爸爸学数学
       </footer>
     </div>
