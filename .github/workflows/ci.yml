@@ -40,7 +40,7 @@ jobs:
           strip_components: 0
           overwrite: true
 
-      - name: Install and start on VPS
+      - name: Restart on VPS
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -48,8 +48,7 @@ jobs:
           password: ${{ secrets.VPS_KEY }}
           script: |
             cd /var/www/dad-jack-learns-math
-            pkill -f "next start" || true
-            bun install
-            nohup bun run start > /tmp/nextjs.log 2>&1 &
-            sleep 3
-            curl -s http://localhost:3000 | head -c 500
+            pkill -f "next" || true
+            pm2 restart all || (bun install && nohup bun run start > /tmp/nextjs.log 2>&1 &)
+            sleep 2
+            echo "Done!"
