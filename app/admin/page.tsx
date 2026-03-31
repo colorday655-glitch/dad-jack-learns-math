@@ -13,7 +13,7 @@ interface NetdiskLink {
 }
 
 const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'jack2024';
+const ADMIN_PASSWORD = 'Jack@Math2024#';
 
 export default function AdminPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
