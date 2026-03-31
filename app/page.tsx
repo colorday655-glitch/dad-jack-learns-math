@@ -43,7 +43,7 @@ function VideoCard({ video }: { video: Video }) {
   
   return (
     <div className={`bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden ${!isAvailable ? 'opacity-60' : 'hover:shadow-md transition-shadow'}`}>
-      <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden">
         <Image 
           src={video.thumbnail}
           alt={video.title}
