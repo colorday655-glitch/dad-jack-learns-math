@@ -30,7 +30,8 @@ function SeriesCard({ title, subtitle, price, episodes, color, link }: {
             <p className="text-gray-500 text-sm mt-1">共 {episodes} 集</p>
           </div>
           <div className="text-right">
-            <div className="text-2xl font-semibold text-gray-800">¥{price}</div>
+            <div className="text-xl text-gray-400 line-through">¥99</div>
+            <div className="text-2xl font-semibold text-blue-600">¥9.9</div>
           </div>
         </div>
       </div>
@@ -40,24 +41,31 @@ function SeriesCard({ title, subtitle, price, episodes, color, link }: {
 
 function VideoCard({ video }: { video: Video }) {
   const isAvailable = video.available;
+  const hasThumbnail = video.thumbnail && !video.thumbnail.includes('placeholder');
   
   return (
     <div className={`bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden ${!isAvailable ? 'opacity-60' : 'hover:shadow-md transition-shadow'}`}>
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <Image 
-          src={video.thumbnail}
-          alt={video.title}
-          fill
-          className="object-contain"
-        />
-        {!isAvailable && (
-          <div className="absolute inset-0 bg-gray-900/50 flex items-center justify-center">
-            <span className="text-white text-lg font-medium px-4 py-2 bg-gray-800/80 rounded-lg">
-              敬请期待
-            </span>
-          </div>
-        )}
-      </div>
+      {hasThumbnail ? (
+        <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+          <Image 
+            src={video.thumbnail}
+            alt={video.title}
+            fill
+            className="object-contain"
+          />
+        </div>
+      ) : (
+        <div className="relative aspect-[4/3] bg-gray-100 flex items-center justify-center">
+          <span className="text-gray-400 text-sm">暂无封面</span>
+        </div>
+      )}
+      {!isAvailable && (
+        <div className="absolute inset-0 bg-gray-900/50 flex items-center justify-center">
+          <span className="text-white text-lg font-medium px-4 py-2 bg-gray-800/80 rounded-lg">
+            敬请期待
+          </span>
+        </div>
+      )}
       <div className="p-4">
         <div className="flex items-center gap-2 mb-2">
           <span className={`text-xs px-2 py-1 rounded font-medium ${video.category === 'G1系列' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
@@ -69,7 +77,10 @@ function VideoCard({ video }: { video: Video }) {
         </h3>
         {isAvailable ? (
           <div className="flex items-center justify-between">
-            <span className="text-blue-600 font-semibold">¥9.9</span>
+            <div>
+              <span className="text-gray-400 text-xs line-through">¥9.9</span>
+              <span className="text-blue-600 font-semibold ml-1">¥0.99</span>
+            </div>
             <Link href={`/product/${video.id}`} className="text-sm text-blue-600 hover:underline">
               购买
             </Link>
@@ -109,12 +120,12 @@ export default function Home() {
             每个视频配套一页纸游戏，在游戏中培养数学思维
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium">
+            <a href="#g1-series" className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-200">
               G1系列 · 12集
-            </span>
-            <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
+            </a>
+            <a href="#g2-series" className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-green-200">
               G2系列 · 12集
-            </span>
+            </a>
           </div>
         </div>
       </section>
@@ -144,7 +155,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mb-12">
+        <section id="g1-series" className="mb-12">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
             <span className="text-2xl">📺</span> G1系列 · 已上线 {g1Videos.length} 集
           </h2>
@@ -155,7 +166,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mb-12">
+        <section id="g2-series" className="mb-12">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
             <span className="text-2xl">📺</span> G2系列 · 已上线 {availableG2.length} 集
           </h2>
