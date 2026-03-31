@@ -218,18 +218,6 @@ export const videos: Video[] = [
   },
   {
     id: 'G205',
-    title: 'G205 最坚强的三角形 | 谁也别想拆散它',
-    description: 'Jack爸爸学数学，专注几何认知。本期讲三角形的稳定性，理解结构坚固性。',
-    videoUrl: 'https://www.bilibili.com/video/BV1bTXkBAEbm/',
-    platform: 'bilibili',
-    category: 'G2系列',
-    thumbnail: '/images/videos/G205.jpg',
-    duration: '02:20',
-    publishDate: '2024-02-12',
-    available: true
-  },
-  {
-    id: 'G205',
     title: 'G205 模式识别｜找规律',
     description: '敬请期待',
     videoUrl: '',
