@@ -240,11 +240,6 @@ function SingleVideoPage({ id }: { id: string }) {
                 {video.id}
               </span>
             </div>
-            {video.duration && (
-              <span className="absolute bottom-3 right-3 bg-black/70 text-white text-sm px-3 py-1 rounded-lg">
-                {video.duration}
-              </span>
-            )}
           </div>
           
           <div className="p-6">
