@@ -6,8 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { videos } from '../../data/videos';
 
-const WECHAT_SERVICE = 'Jack爸爸学数学';
-
 function isBundle(id: string): boolean {
   return id === 'G1-bundle' || id === 'G2-bundle';
 }
