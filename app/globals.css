@@ -1,22 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #1E40AF;
-  --primary-light: #3B82F6;
-  --secondary: #F59E0B;
-  --secondary-light: #FBBF24;
+  /* Pixar Style - 皮克斯风格 */
+  --primary: #FF6B35;
+  --primary-light: #FF8E53;
+  --primary-dark: #E85A24;
   
-  --bg-white: #FFFFFF;
-  --bg-light: #F8FAFC;
-  --bg-gray: #F1F5F9;
+  --secondary: #4ECDC4;
+  --secondary-light: #7EDDD7;
   
-  --text-dark: #1E293B;
-  --text-gray: #64748B;
-  --text-light: #94A3B8;
+  --accent: #FFE66D;
+  --accent-light: #FFF0A0;
   
-  --success: #10B981;
-  --warning: #F59E0B;
-  --error: #EF4444;
+  --dark: #2C3E50;
+  --medium: #5D6D7E;
+  
+  --bg-white: #FFFEF8;
+  --bg-light: #FFF9E6;
+  --bg-cream: #FFF5E1;
+  
+  --text-dark: #2C3E50;
+  --text-medium: #5D6D7E;
+  --text-light: #95A5A6;
+  
+  --success: #2ECC71;
+  --warning: #F39C12;
+  --error: #E74C3C;
+  
+  --card-shadow: 0 8px 30px rgba(255, 107, 53, 0.15);
+  --hover-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
 }
 
 @theme inline {
@@ -37,11 +49,118 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+/* 皮克斯风格动画 */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 53, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 107, 53, 0.6); }
+}
+
+.animate-bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 皮克斯风格卡片 */
+.pixar-card {
+  background: white;
+  border-radius: 24px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.pixar-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--hover-shadow);
+}
+
+/* 皮克斯风格按钮 */
+.pixar-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.pixar-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.pixar-btn-secondary {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+/* 皮克斯风格标签 */
+.pixar-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.pixar-tag-g1 {
+  background: linear-gradient(135deg, #FF6B35, #FF8E53);
+  color: white;
+}
+
+.pixar-tag-g2 {
+  background: linear-gradient(135deg, #4ECDC4, #7EDDD7);
+  color: white;
+}
+
+.pixar-tag-single {
+  background: linear-gradient(135deg, #FFE66D, #FFF0A0);
+  color: #2C3E50;
+}
+
+@layer utilities {
+  .border-orange-200 {
+    border-color: #fed7aa;
+  }
+  .border-mint-200 {
+    border-color: #a7f3d0;
+  }
+  .from-orange-400 {
+    --tw-gradient-from: #fb923c;
+  }
+  .to-pink-500 {
+    --tw-gradient-to: #ec4899;
+  }
+  .to-cyan-400 {
+    --tw-gradient-to: #22d3ee;
+  }
+  .from-orange-500 {
+    --tw-gradient-from: #f97316;
+  }
+  .to-pink-500 {
+    --tw-gradient-to: #ec4899;
+  }
+  .via-pink-400 {
+    --tw-gradient-via: #f472b6;
+  }
 }
