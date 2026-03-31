@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -47,14 +47,36 @@ export default function ProductPage() {
 
 function PaymentSuccessPage({ id }: { id: string }) {
   const video = videos.find(v => v.id === id);
-  const isBundle = id === 'G1-bundle' || id === 'G2-bundle';
-  
-  const title = isBundle 
+  const isBundlePage = id === 'G1-bundle' || id === 'G2-bundle';
+  const [netdiskData, setNetdiskData] = useState<{ link: string; password: string } | null>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('netdiskLinks');
+    if (saved) {
+      const links = JSON.parse(saved);
+      if (isBundlePage) {
+        const g1Videos = videos.filter(v => v.category === 'G1系列').map(v => v.id);
+        const g2Videos = videos.filter(v => v.category === 'G2系列').map(v => v.id);
+        const targetIds = id === 'G1-bundle' ? g1Videos : g2Videos;
+        const link = links.find((l: any) => targetIds.includes(l.videoId));
+        if (link) {
+          setNetdiskData({ link: link.link, password: link.password });
+        }
+      } else {
+        const link = links.find((l: any) => l.videoId === id);
+        if (link) {
+          setNetdiskData({ link: link.link, password: link.password });
+        }
+      }
+    }
+  }, [id, isBundlePage]);
+
+  const title = isBundlePage 
     ? (id === 'G1-bundle' ? 'G1系列套装' : 'G2系列套装')
     : video?.title || '';
-    
-  const netdiskLink = 'https://pan.baidu.com/s/xxxxx';
-  const netdiskPassword = '1234';
+
+  const netdiskLink = netdiskData?.link || '尚未设置下载链接，请联系客服';
+  const netdiskPassword = netdiskData?.password || '';
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
@@ -86,29 +108,37 @@ function PaymentSuccessPage({ id }: { id: string }) {
 
             <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 mb-6">
               <h3 className="font-bold text-green-700 mb-3">🔗 百度网盘下载链接</h3>
-              <div className="bg-white rounded-lg p-4 mb-3">
-                <p className="text-sm text-gray-500 mb-1">链接</p>
-                <a 
-                  href={netdiskLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-orange-500 hover:underline break-all"
-                >
-                  {netdiskLink}
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-500">提取码：</span>
-                <span className="bg-white px-3 py-1 rounded font-mono font-bold text-gray-800">
-                  {netdiskPassword}
-                </span>
-                <button 
-                  onClick={() => navigator.clipboard.writeText(netdiskPassword)}
-                  className="text-orange-500 text-sm hover:underline"
-                >
-                  复制
-                </button>
-              </div>
+              {netdiskData ? (
+                <>
+                  <div className="bg-white rounded-lg p-4 mb-3">
+                    <p className="text-sm text-gray-500 mb-1">链接</p>
+                    <a 
+                      href={netdiskLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-orange-500 hover:underline break-all"
+                    >
+                      {netdiskLink}
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-gray-500">提取码：</span>
+                    <span className="bg-white px-3 py-1 rounded font-mono font-bold text-gray-800">
+                      {netdiskPassword}
+                    </span>
+                    <button 
+                      onClick={() => navigator.clipboard.writeText(netdiskPassword)}
+                      className="text-orange-500 text-sm hover:underline"
+                    >
+                      复制
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div className="bg-white rounded-lg p-4 text-center">
+                  <p className="text-gray-500">{netdiskLink}</p>
+                </div>
+              )}
             </div>
 
             <div className="text-sm text-gray-500 space-y-2">
