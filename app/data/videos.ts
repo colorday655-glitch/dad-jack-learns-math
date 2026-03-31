@@ -206,19 +206,7 @@ export const videos: Video[] = [
   },
   {
     id: 'G205',
-    title: 'G205 最坚强的三角形 | 谁也别想拆散它',
-    description: 'Jack爸爸学数学，专注几何认知。本期讲三角形的稳定性，理解结构坚固性。',
-    videoUrl: 'https://www.bilibili.com/video/BV1bTXkBAEbm/',
-    platform: 'bilibili',
-    category: 'G2系列',
-    thumbnail: '/images/videos/G205.jpg',
-    duration: '02:20',
-    publishDate: '2024-02-12',
-    available: true
-  },
-  {
-    id: 'G205',
-    title: 'G205 模式识别｜找规律',
+    title: 'G205 敬请期待',
     description: '敬请期待',
     videoUrl: '',
     platform: 'bilibili',
@@ -230,7 +218,7 @@ export const videos: Video[] = [
   },
   {
     id: 'G206',
-    title: 'G206 组合逻辑｜搭配',
+    title: 'G206 敬请期待',
     description: '敬请期待',
     videoUrl: '',
     platform: 'bilibili',
@@ -242,7 +230,7 @@ export const videos: Video[] = [
   },
   {
     id: 'G207',
-    title: 'G207 排除逻辑｜找线索',
+    title: 'G207 敬请期待',
     description: '敬请期待',
     videoUrl: '',
     platform: 'bilibili',
@@ -254,7 +242,7 @@ export const videos: Video[] = [
   },
   {
     id: 'G208',
-    title: 'G208 假设验证｜试错',
+    title: 'G208 敬请期待',
     description: '敬请期待',
     videoUrl: '',
     platform: 'bilibili',
@@ -266,7 +254,7 @@ export const videos: Video[] = [
   },
   {
     id: 'G209',
-    title: 'G209 逆向思维｜倒推',
+    title: 'G209 敬请期待',
     description: '敬请期待',
     videoUrl: '',
     platform: 'bilibili',
@@ -278,7 +266,7 @@ export const videos: Video[] = [
   },
   {
     id: 'G210',
-    title: 'G210 类比思维｜相似',
+    title: 'G210 敬请期待',
     description: '敬请期待',
     videoUrl: '',
     platform: 'bilibili',
@@ -290,7 +278,7 @@ export const videos: Video[] = [
   },
   {
     id: 'G211',
-    title: 'G211 整体与部分｜拆分',
+    title: 'G211 敬请期待',
     description: '敬请期待',
     videoUrl: '',
     platform: 'bilibili',
@@ -302,7 +290,7 @@ export const videos: Video[] = [
   },
   {
     id: 'G212',
-    title: 'G212 综合运用｜思维游戏',
+    title: 'G212 敬请期待',
     description: '敬请期待',
     videoUrl: '',
     platform: 'bilibili',
