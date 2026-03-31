@@ -259,7 +259,7 @@ function SingleVideoPage({ id }: { id: string }) {
               <div className="text-sm text-gray-600 mb-2">💰 价格</div>
               <div className="text-gray-400 line-through text-lg">¥9.9</div>
               <div className="text-3xl font-semibold text-blue-600">¥0.99</div>
-              <div className="text-xs text-gray-400 mt-1">包含百度网盘下载链接</div>
+              <div className="text-xs text-gray-400 mt-1">限量优惠价，包含百度网盘下载链接</div>
             </div>
 
             <div className="space-y-3">
@@ -415,7 +415,7 @@ function BundlePage({ id }: { id: string }) {
                 </div>
               </div>
               <div className="text-xs text-gray-400">
-                原价 ¥{9.9 * videos_.length}，现优惠 ¥{((9.9 * videos_.length) - 9.9).toFixed(1)}
+                12集完整版，原价 ¥99，限时优惠 ¥9.9
               </div>
             </div>
 
