@@ -61,11 +61,6 @@ function VideoCard({ video }: { video: Video }) {
         {isAvailable && (
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         )}
-        {isAvailable && video.duration && (
-          <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
-            {video.duration}
-          </span>
-        )}
       </div>
       <div className="p-4">
         <div className="flex items-center gap-2 mb-2">
