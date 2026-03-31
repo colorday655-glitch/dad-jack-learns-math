@@ -33,11 +33,11 @@ export default function ProductPage() {
   }
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white flex items-center justify-center">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="text-center">
         <div className="text-6xl mb-4">🔍</div>
         <h1 className="text-2xl font-bold text-gray-800 mb-4">未找到</h1>
-        <Link href="/" className="text-orange-500 hover:text-orange-600 font-medium">
+        <Link href="/" className="text-blue-600 hover:underline font-medium">
           ← 返回首页
         </Link>
       </div>
@@ -79,12 +79,12 @@ function PaymentSuccessPage({ id }: { id: string }) {
   const netdiskPassword = netdiskData?.password || '';
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
-      <header className="bg-white/80 backdrop-blur-sm border-b border-orange-100 sticky top-0 z-50">
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-2xl mx-auto px-4 py-3">
           <Link 
             href="/" 
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-orange-500 font-medium"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 font-medium"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -101,13 +101,13 @@ function PaymentSuccessPage({ id }: { id: string }) {
           <p className="text-gray-500">感谢您的支持</p>
         </div>
 
-        <div className="pixar-card overflow-hidden">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           <div className="p-6">
             <h2 className="text-lg font-bold text-gray-800 mb-4">📦 您购买的内容</h2>
             <p className="text-gray-600 mb-6">{title}</p>
 
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 mb-6">
-              <h3 className="font-bold text-green-700 mb-3">🔗 百度网盘下载链接</h3>
+            <div className="bg-blue-50 rounded-lg p-4 mb-6">
+              <h3 className="font-bold text-blue-700 mb-3">🔗 百度网盘下载链接</h3>
               {netdiskData ? (
                 <>
                   <div className="bg-white rounded-lg p-4 mb-3">
@@ -116,7 +116,7 @@ function PaymentSuccessPage({ id }: { id: string }) {
                       href={netdiskLink} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-orange-500 hover:underline break-all"
+                      className="text-blue-600 hover:underline break-all"
                     >
                       {netdiskLink}
                     </a>
@@ -128,7 +128,7 @@ function PaymentSuccessPage({ id }: { id: string }) {
                     </span>
                     <button 
                       onClick={() => navigator.clipboard.writeText(netdiskPassword)}
-                      className="text-orange-500 text-sm hover:underline"
+                      className="text-blue-600 text-sm hover:underline"
                     >
                       复制
                     </button>
@@ -152,7 +152,7 @@ function PaymentSuccessPage({ id }: { id: string }) {
 
             <Link 
               href="/"
-              className="block text-center text-orange-500 hover:text-orange-600 font-medium mt-6"
+              className="block text-center text-blue-600 hover:underline font-medium mt-6"
             >
               返回首页
             </Link>
@@ -161,7 +161,7 @@ function PaymentSuccessPage({ id }: { id: string }) {
       </main>
 
       <footer className="text-center py-6 text-gray-400 text-sm">
-        © 2024 Jack爸爸学数学
+        © 2026 Jack爸爸学数学
       </footer>
     </div>
   );
@@ -173,11 +173,11 @@ function SingleVideoPage({ id }: { id: string }) {
 
   if (!video) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4">🔍</div>
           <h1 className="text-2xl font-bold text-gray-800 mb-4">视频未找到</h1>
-          <Link href="/" className="text-orange-500 hover:text-orange-600 font-medium">
+          <Link href="/" className="text-blue-600 hover:underline font-medium">
             ← 返回首页
           </Link>
         </div>
@@ -187,12 +187,12 @@ function SingleVideoPage({ id }: { id: string }) {
 
   if (!video.available) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4">⏰</div>
           <h1 className="text-2xl font-bold text-gray-800 mb-4">即将上线</h1>
           <p className="text-gray-500 mb-4">{video.title}</p>
-          <Link href="/" className="text-orange-500 hover:text-orange-600 font-medium">
+          <Link href="/" className="text-blue-600 hover:underline font-medium">
             ← 返回首页
           </Link>
         </div>
@@ -204,13 +204,15 @@ function SingleVideoPage({ id }: { id: string }) {
     setShowModal(true);
   };
 
+  const isPlaceholder = video.thumbnail.includes('placeholder');
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
-      <header className="bg-white/80 backdrop-blur-sm border-b border-orange-100 sticky top-0 z-50">
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-2xl mx-auto px-4 py-3">
           <Link 
             href="/" 
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-orange-500 font-medium"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 font-medium"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -221,16 +223,20 @@ function SingleVideoPage({ id }: { id: string }) {
       </header>
 
       <main className="max-w-2xl mx-auto px-4 py-8">
-        <div className="pixar-card overflow-hidden">
-          <div className="relative aspect-[4/3]">
-            <Image 
-              src={video.thumbnail}
-              alt={video.title}
-              fill
-              className="object-cover"
-            />
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <div className="relative aspect-[4/3] bg-gray-100 flex items-center justify-center">
+            {isPlaceholder ? (
+              <span className="text-gray-400 text-lg">暂无封面</span>
+            ) : (
+              <Image 
+                src={video.thumbnail}
+                alt={video.title}
+                fill
+                className="object-contain"
+              />
+            )}
             <div className="absolute top-3 left-3">
-              <span className={`pixar-tag ${video.category === 'G1系列' ? 'pixar-tag-g1' : 'pixar-tag-g2'}`}>
+              <span className={`text-xs px-2 py-1 rounded font-medium ${video.category === 'G1系列' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
                 {video.id}
               </span>
             </div>
@@ -249,34 +255,35 @@ function SingleVideoPage({ id }: { id: string }) {
               {video.description}
             </p>
             
-            <div className="bg-gradient-to-r from-orange-50 to-pink-50 rounded-xl p-4 mb-6">
+            <div className="bg-gray-50 rounded-lg p-4 mb-6">
               <div className="text-sm text-gray-600 mb-2">💰 价格</div>
-              <div className="text-3xl font-bold text-orange-500">¥9.9</div>
+              <div className="text-gray-400 line-through text-lg">¥9.9</div>
+              <div className="text-3xl font-semibold text-blue-600">¥0.99</div>
               <div className="text-xs text-gray-400 mt-1">包含百度网盘下载链接</div>
             </div>
 
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-gray-600">
-                <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">📦</span>
+                <span className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">📦</span>
                 <span>视频配套一页纸游戏打印版</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-gray-600">
-                <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">🔗</span>
+                <span className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">🔗</span>
                 <span>百度网盘链接 + 提取码</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-gray-600">
-                <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">📱</span>
+                <span className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">📱</span>
                 <span>微信支付，安全便捷</span>
               </div>
             </div>
 
-            <button onClick={handleBuy} className="w-full pixar-btn py-4 text-lg mt-6">
-              立即购买 ¥9.9
+            <button onClick={handleBuy} className="w-full bg-blue-600 text-white py-4 text-lg font-medium rounded-lg hover:bg-blue-700 transition-colors mt-6">
+              立即购买 ¥0.99
             </button>
 
             <Link 
               href="/"
-              className="block text-center text-gray-400 text-sm mt-4 hover:text-orange-500"
+              className="block text-center text-gray-400 text-sm mt-4 hover:text-blue-600"
             >
               返回首页
             </Link>
@@ -295,7 +302,7 @@ function SingleVideoPage({ id }: { id: string }) {
               href="https://work.weixin.qq.com/kfid/XXXXXXXX"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full pixar-btn py-3 text-center mb-3"
+              className="block w-full bg-blue-600 text-white py-3 text-center rounded-lg mb-3 hover:bg-blue-700"
             >
               联系客服
             </a>
@@ -310,7 +317,7 @@ function SingleVideoPage({ id }: { id: string }) {
       )}
 
       <footer className="text-center py-6 text-gray-400 text-sm">
-        © 2024 Jack爸爸学数学
+        © 2026 Jack爸爸学数学
       </footer>
     </div>
   );
@@ -328,7 +335,7 @@ function BundlePage({ id }: { id: string }) {
       : [];
       
   const availableCount = videos_.filter(v => v.available).length;
-  const price = '99.9';
+  const price = '9.9';
   const seriesName = isG1 ? 'G1系列' : isG2 ? 'G2系列' : '';
 
   const handleBuy = () => {
@@ -336,12 +343,12 @@ function BundlePage({ id }: { id: string }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
-      <header className="bg-white/80 backdrop-blur-sm border-b border-orange-100 sticky top-0 z-50">
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-2xl mx-auto px-4 py-3">
           <Link 
             href="/" 
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-orange-500 font-medium"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 font-medium"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -353,71 +360,81 @@ function BundlePage({ id }: { id: string }) {
 
       <main className="max-w-2xl mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <span className={`inline-block pixar-tag mb-4 ${isG1 ? 'pixar-tag-g1' : 'pixar-tag-g2'}`}>
+          <span className={`inline-block text-xs px-3 py-1 rounded font-medium mb-4 ${isG1 ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
             {seriesName}
           </span>
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
-            {isG1 ? '🚀 逻辑思维入门套装' : '🌟 进阶思维训练套装'}
+            {isG1 ? '📐 逻辑思维入门套装' : '🧩 进阶思维训练套装'}
           </h1>
           <p className="text-gray-500">
             共 {videos_.length} 集，已上线 {availableCount} 集
           </p>
         </div>
 
-        <div className="pixar-card overflow-hidden mb-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-6">
           <div className="grid grid-cols-4 gap-2 p-4">
-            {videos_.map(video => (
-              <div 
-                key={video.id} 
-                className={`relative aspect-square rounded-lg overflow-hidden ${
-                  !video.available ? 'opacity-50' : ''
-                }`}
-              >
-                <Image 
-                  src={video.thumbnail}
-                  alt={video.id}
-                  fill
-                  className="object-cover"
-                />
-                {!video.available && (
-                  <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
-                    <span className="text-xs text-gray-500">敬请期待</span>
-                  </div>
-                )}
-                <span className="absolute bottom-1 right-1 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
-                  {video.id.replace('G', '')}
-                </span>
-              </div>
-            ))}
+            {videos_.map(video => {
+              const isPlaceholder = video.thumbnail.includes('placeholder');
+              return (
+                <div 
+                  key={video.id} 
+                  className={`relative aspect-square rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center ${
+                    !video.available ? 'opacity-50' : ''
+                  }`}
+                >
+                  {isPlaceholder ? (
+                    <span className="text-gray-400 text-xs">暂无</span>
+                  ) : (
+                    <Image 
+                      src={video.thumbnail}
+                      alt={video.id}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                  {!video.available && (
+                    <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
+                      <span className="text-xs text-gray-500">敬请期待</span>
+                    </div>
+                  )}
+                  <span className="absolute bottom-1 right-1 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
+                    {video.id.replace('G', '')}
+                  </span>
+                </div>
+              );
+            })}
           </div>
           
-          <div className="p-6 border-t border-orange-100">
-            <div className="bg-gradient-to-r from-orange-50 to-pink-50 rounded-xl p-4 mb-4">
+          <div className="p-6 border-t border-gray-200">
+            <div className="bg-gray-50 rounded-lg p-4 mb-4">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-sm text-gray-600">套餐价格</span>
-                <span className="text-3xl font-bold text-orange-500">¥{price}</span>
+                <div>
+                  <span className="text-lg text-gray-400 line-through mr-2">¥99</span>
+                  <span className="text-3xl font-semibold text-blue-600">¥{price}</span>
+                </div>
               </div>
               <div className="text-xs text-gray-400">
-                原价 ¥{9.9 * videos_.length}，现优惠 ¥{((9.9 * videos_.length) - 99.9).toFixed(1)}
+                原价 ¥{9.9 * videos_.length}，现优惠 ¥{((9.9 * videos_.length) - 9.9).toFixed(1)}
               </div>
             </div>
 
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3 text-sm text-gray-600">
-                <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">📦</span>
+                <span className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">📦</span>
                 <span>{videos_.length} 集完整版游戏打印版</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-gray-600">
-                <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">🔗</span>
+                <span className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">🔗</span>
                 <span>百度网盘完整下载链接</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-gray-600">
-                <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">💾</span>
+                <span className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">💾</span>
                 <span>后续更新免费获取</span>
               </div>
             </div>
 
-            <button onClick={handleBuy} className="w-full pixar-btn py-4 text-lg">
+            <button onClick={handleBuy} className="w-full bg-blue-600 text-white py-4 text-lg font-medium rounded-lg hover:bg-blue-700 transition-colors">
               立即购买 ¥{price}
             </button>
 
@@ -427,7 +444,7 @@ function BundlePage({ id }: { id: string }) {
 
             <Link 
               href="/"
-              className="block text-center text-gray-400 text-sm mt-4 hover:text-orange-500"
+              className="block text-center text-gray-400 text-sm mt-4 hover:text-blue-600"
             >
               返回首页
             </Link>
@@ -446,7 +463,7 @@ function BundlePage({ id }: { id: string }) {
               href="https://work.weixin.qq.com/kfid/XXXXXXXX"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full pixar-btn py-3 text-center mb-3"
+              className="block w-full bg-blue-600 text-white py-3 text-center rounded-lg mb-3 hover:bg-blue-700"
             >
               联系客服
             </a>
@@ -461,7 +478,7 @@ function BundlePage({ id }: { id: string }) {
       )}
 
       <footer className="text-center py-6 text-gray-400 text-sm">
-        © 2024 Jack爸爸学数学
+        © 2026 Jack爸爸学数学
       </footer>
     </div>
   );
