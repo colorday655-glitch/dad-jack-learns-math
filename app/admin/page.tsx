@@ -88,8 +88,8 @@ export default function AdminPage() {
 
   if (!isLoggedIn) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white flex items-center justify-center p-4">
-        <div className="pixar-card p-8 w-full max-w-sm">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 w-full max-w-sm">
           <div className="text-center mb-6">
             <div className="text-4xl mb-2">🔐</div>
             <h1 className="text-2xl font-bold text-gray-800">管理员登录</h1>
@@ -104,7 +104,7 @@ export default function AdminPage() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
                 placeholder="请输入用户名"
               />
             </div>
@@ -117,7 +117,7 @@ export default function AdminPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
                 placeholder="请输入密码"
               />
             </div>
@@ -128,7 +128,7 @@ export default function AdminPage() {
             
             <button
               type="submit"
-              className="w-full pixar-btn py-3"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
             >
               登录
             </button>
@@ -136,7 +136,7 @@ export default function AdminPage() {
           
           <Link 
             href="/"
-            className="block text-center text-gray-400 text-sm mt-4 hover:text-orange-500"
+            className="block text-center text-gray-400 text-sm mt-4 hover:text-blue-600"
           >
             返回首页
           </Link>
@@ -146,8 +146,8 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
-      <header className="bg-white/80 backdrop-blur-sm border-b border-orange-100 sticky top-0 z-50">
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <h1 className="text-xl font-bold text-gray-800">📚 百度网盘链接管理</h1>
@@ -155,7 +155,7 @@ export default function AdminPage() {
               <span className="text-sm text-gray-500">已登录</span>
               <button 
                 onClick={handleLogout}
-                className="text-orange-500 hover:text-orange-600 text-sm"
+                className="text-blue-600 hover:text-blue-700 text-sm"
               >
                 退出
               </button>
@@ -172,13 +172,13 @@ export default function AdminPage() {
         )}
 
         <div className="space-y-6">
-          <div className="pixar-card p-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">🚀 G1系列 (12集)</h2>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h2 className="text-lg font-bold text-gray-800 mb-4">📐 G1系列 (12集)</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {videos.filter(v => v.category === 'G1系列').map(video => (
-                <div key={video.id} className="border border-orange-200 rounded-lg p-4">
+                <div key={video.id} className="border border-gray-200 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <span className={`pixar-tag text-xs ${video.available ? 'pixar-tag-g1' : 'bg-gray-200'}`}>
+                    <span className={`text-xs px-2 py-1 rounded font-medium ${video.available ? 'bg-blue-100 text-blue-700' : 'bg-gray-200 text-gray-500'}`}>
                       {video.id}
                     </span>
                     {getLinkInfo(video.id) && (
@@ -208,13 +208,13 @@ export default function AdminPage() {
                       <div className="flex gap-2">
                         <button 
                           onClick={handleSave}
-                          className="flex-1 bg-green-500 text-white text-sm py-1 rounded"
+                          className="flex-1 bg-blue-600 text-white text-sm py-1 rounded hover:bg-blue-700"
                         >
                           保存
                         </button>
                         <button 
                           onClick={() => setEditingId(null)}
-                          className="flex-1 bg-gray-300 text-gray-700 text-sm py-1 rounded"
+                          className="flex-1 bg-gray-200 text-gray-700 text-sm py-1 rounded hover:bg-gray-300"
                         >
                           取消
                         </button>
@@ -223,7 +223,7 @@ export default function AdminPage() {
                   ) : (
                     <button 
                       onClick={() => handleEdit(video.id)}
-                      className="w-full text-orange-500 text-sm hover:underline"
+                      className="w-full text-blue-600 text-sm hover:underline"
                     >
                       {getLinkInfo(video.id) ? '修改链接' : '设置链接'}
                     </button>
@@ -233,13 +233,13 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <div className="pixar-card p-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">🌟 G2系列 (12集)</h2>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h2 className="text-lg font-bold text-gray-800 mb-4">🧩 G2系列 (12集)</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {videos.filter(v => v.category === 'G2系列').map(video => (
-                <div key={video.id} className="border border-mint-200 rounded-lg p-4">
+                <div key={video.id} className="border border-gray-200 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <span className={`pixar-tag text-xs ${video.available ? 'pixar-tag-g2' : 'bg-gray-200'}`}>
+                    <span className={`text-xs px-2 py-1 rounded font-medium ${video.available ? 'bg-green-100 text-green-700' : 'bg-gray-200 text-gray-500'}`}>
                       {video.id}
                     </span>
                     {getLinkInfo(video.id) && (
@@ -269,13 +269,13 @@ export default function AdminPage() {
                       <div className="flex gap-2">
                         <button 
                           onClick={handleSave}
-                          className="flex-1 bg-green-500 text-white text-sm py-1 rounded"
+                          className="flex-1 bg-blue-600 text-white text-sm py-1 rounded hover:bg-blue-700"
                         >
                           保存
                         </button>
                         <button 
                           onClick={() => setEditingId(null)}
-                          className="flex-1 bg-gray-300 text-gray-700 text-sm py-1 rounded"
+                          className="flex-1 bg-gray-200 text-gray-700 text-sm py-1 rounded hover:bg-gray-300"
                         >
                           取消
                         </button>
@@ -284,7 +284,7 @@ export default function AdminPage() {
                   ) : (
                     <button 
                       onClick={() => handleEdit(video.id)}
-                      className="w-full text-orange-500 text-sm hover:underline"
+                      className="w-full text-blue-600 text-sm hover:underline"
                     >
                       {getLinkInfo(video.id) ? '修改链接' : '设置链接'}
                     </button>
@@ -297,7 +297,7 @@ export default function AdminPage() {
 
         <Link 
           href="/"
-          className="block text-center text-gray-400 text-sm mt-8 hover:text-orange-500"
+          className="block text-center text-gray-400 text-sm mt-8 hover:text-blue-600"
         >
           返回首页
         </Link>

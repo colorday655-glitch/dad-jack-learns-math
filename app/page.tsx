@@ -41,17 +41,21 @@ function SeriesCard({ title, subtitle, price, episodes, color, link }: {
 
 function VideoCard({ video }: { video: Video }) {
   const isAvailable = video.available;
-  const hasThumbnail = video.thumbnail && !video.thumbnail.includes('placeholder');
+  const isPlaceholder = video.thumbnail.includes('placeholder');
   
   return (
     <div className={`bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden ${!isAvailable ? 'opacity-60' : 'hover:shadow-md transition-shadow'}`}>
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <Image 
-          src={video.thumbnail}
-          alt={video.title}
-          fill
-          className="object-contain"
-        />
+      <div className="relative aspect-[4/3] overflow-hidden bg-gray-100 flex items-center justify-center">
+        {isPlaceholder ? (
+          <span className="text-gray-400 text-lg font-medium">暂无封面</span>
+        ) : (
+          <Image 
+            src={video.thumbnail}
+            alt={video.title}
+            fill
+            className="object-contain"
+          />
+        )}
         {!isAvailable && (
           <div className="absolute inset-0 bg-gray-900/50 flex items-center justify-center">
             <span className="text-white text-lg font-medium px-4 py-2 bg-gray-800/80 rounded-lg">
