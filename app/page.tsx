@@ -48,7 +48,7 @@ function VideoCard({ video }: { video: Video }) {
           src={video.thumbnail}
           alt={video.title}
           fill
-          className="object-cover"
+          className="object-contain"
         />
         {!isAvailable && (
           <div className="absolute inset-0 bg-gray-900/50 flex items-center justify-center">
