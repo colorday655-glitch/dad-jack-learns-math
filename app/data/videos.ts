@@ -13,8 +13,8 @@ export interface Video {
 
 export const videos: Video[] = [
   {
-    id: 'G101',
-    title: 'G101 把积木变平了 | 藏在影子里的秘密',
+    id: 'G112',
+    title: 'G112 把积木变平了 | 藏在影子里的秘密',
     description: 'Jack爸爸学数学，专注逻辑思维启蒙。本期讲把积木变平，理解从 3D 到 2D 转换背后的空间逻辑。',
     videoUrl: 'https://www.bilibili.com/video/BV1kTXsBuEqU/',
     platform: 'bilibili',
@@ -25,8 +25,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G102',
-    title: 'G102 等价交换入门｜看透价值秩序',
+    id: 'G111',
+    title: 'G111 等价交换入门｜看透价值秩序',
     description: 'Jack爸爸学数学，专注逻辑思维启蒙。本期讲等价交换，理解认识人民币背后的数学信用。',
     videoUrl: 'https://www.bilibili.com/video/BV1sGAKzJEK8/',
     platform: 'bilibili',
@@ -37,8 +37,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G103',
-    title: 'G103 周期性规律｜认识钟表逻辑',
+    id: 'G110',
+    title: 'G110 周期性规律｜认识钟表逻辑',
     description: 'Jack爸爸学数学，专注小学数学思维。本期讲周期性规律，从时间刻度理解宇宙节奏。',
     videoUrl: 'https://www.bilibili.com/video/BV13GAAzXEXi/',
     platform: 'bilibili',
@@ -49,8 +49,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G104',
-    title: 'G104 凑十法入门｜算法优化提速',
+    id: 'G109',
+    title: 'G109 凑十法入门｜算法优化提速',
     description: 'Jack爸爸学数学，专注逻辑思维训练。本期讲凑十法，教孩子用算法优化思维实现计算提速。',
     videoUrl: 'https://www.bilibili.com/video/BV1aQAcz7Ece/',
     platform: 'bilibili',
@@ -61,8 +61,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G105',
-    title: 'G105 进制逻辑入门｜进位魔术',
+    id: 'G108',
+    title: 'G108 进制逻辑入门｜进位魔术',
     description: 'Jack爸爸学数学，专注小学数学思维启蒙。本期讲进制逻辑，看穿"以一当十"的进位魔术。',
     videoUrl: 'https://www.bilibili.com/video/BV13gAczjEEH/',
     platform: 'bilibili',
@@ -73,8 +73,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G106',
-    title: 'G106 模块化思维｜数字拼装',
+    id: 'G107',
+    title: 'G107 模块化思维｜数字拼装',
     description: 'Jack爸爸学数学，专注解决问题能力。本期讲模块化思维，学会拆解与拼装复杂大目标。',
     videoUrl: 'https://www.bilibili.com/video/BV1jXAEz6EQc/',
     platform: 'bilibili',
@@ -85,8 +85,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G107',
-    title: 'G107 形状属性逻辑｜功能主义',
+    id: 'G106',
+    title: 'G106 形状属性逻辑｜功能主义',
     description: 'Jack爸爸学数学，专注工程思维训练。本期讲形状属性，理解功能主义：形状决定用途。',
     videoUrl: 'https://www.bilibili.com/video/BV1xwwzzGEgB/',
     platform: 'bilibili',
@@ -97,8 +97,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G108',
-    title: 'G108 减法逻辑入门｜寻找差值',
+    id: 'G105',
+    title: 'G105 减法逻辑入门｜寻找差值',
     description: 'Jack爸爸学数学，专注小学数学思维。本期讲减法逻辑，学会通过寻找差值解决缺失问题。',
     videoUrl: 'https://www.bilibili.com/video/BV1E4w3zHEKT/',
     platform: 'bilibili',
@@ -109,8 +109,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G109',
-    title: 'G109 加法逻辑入门｜系统集成',
+    id: 'G104',
+    title: 'G104 加法逻辑入门｜系统集成',
     description: 'Jack爸爸学数学，专注逻辑思维启蒙。本期讲加法逻辑，理解系统集成与合并的力量。',
     videoUrl: 'https://www.bilibili.com/video/BV1DswWzuEWE/',
     platform: 'bilibili',
@@ -121,8 +121,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G110',
-    title: 'G110 符号化思维｜信息压缩',
+    id: 'G103',
+    title: 'G103 符号化思维｜信息压缩',
     description: 'Jack爸爸学数学，专注数学逻辑入门。本期讲符号化思维，学会用信息压缩释放大脑带宽。',
     videoUrl: 'https://www.bilibili.com/video/BV1UbwczuEvA/',
     platform: 'bilibili',
@@ -133,8 +133,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G111',
-    title: 'G111 坐标系定位｜空间索引',
+    id: 'G102',
+    title: 'G102 坐标系定位｜空间索引',
     description: 'Jack爸爸学数学，专注空间思维启蒙。本期讲坐标系定位，带孩子建立空间索引精准定位。',
     videoUrl: 'https://www.bilibili.com/video/BV1GpcQzpES4/',
     platform: 'bilibili',
@@ -145,8 +145,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G112',
-    title: 'G112 相对性原理｜大小长短',
+    id: 'G101',
+    title: 'G101 相对性原理｜大小长短',
     description: 'Jack爸爸学数学，专注逻辑思维训练。本期讲相对性原理，选对参照物看清真实世界。',
     videoUrl: 'https://www.bilibili.com/video/BV17kPXzuEuM/',
     platform: 'bilibili',
@@ -157,8 +157,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G201',
-    title: 'G201 集合逻辑入门｜分类秩序',
+    id: 'G204',
+    title: 'G204 集合逻辑入门｜分类秩序',
     description: 'Jack爸爸学数学，专注小学数学思维启蒙。本期讲集合逻辑，带孩子通过分类建立秩序感。',
     videoUrl: 'https://www.bilibili.com/video/BV1QWNgzLE44/',
     platform: 'bilibili',
@@ -169,8 +169,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G202',
-    title: 'G202 对应逻辑｜一一对应',
+    id: 'G203',
+    title: 'G203 对应逻辑｜一一对应',
     description: 'Jack爸爸学数学，专注对应思维训练。本期讲一一对应，理解匹配背后的映射关系。',
     videoUrl: '',
     platform: 'bilibili',
@@ -181,8 +181,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G203',
-    title: 'G203 排序逻辑｜大小多少',
+    id: 'G202',
+    title: 'G202 排序逻辑｜大小多少',
     description: 'Jack爸爸学数学，专注排序思维。本期讲排序逻辑，学会按属性比较和排列顺序。',
     videoUrl: '',
     platform: 'bilibili',
@@ -193,8 +193,8 @@ export const videos: Video[] = [
     available: true
   },
   {
-    id: 'G204',
-    title: 'G204 对比逻辑｜找不同',
+    id: 'G201',
+    title: 'G201 对比逻辑｜找不同',
     description: 'Jack爸爸学数学，专注观察力培养。本期讲对比逻辑，学会发现事物间的差异。',
     videoUrl: '',
     platform: 'bilibili',
