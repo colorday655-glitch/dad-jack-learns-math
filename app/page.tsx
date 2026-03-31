@@ -45,27 +45,21 @@ function VideoCard({ video }: { video: Video }) {
   
   return (
     <div className={`bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden ${!isAvailable ? 'opacity-60' : 'hover:shadow-md transition-shadow'}`}>
-      {hasThumbnail ? (
-        <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
-          <Image 
-            src={video.thumbnail}
-            alt={video.title}
-            fill
-            className="object-contain"
-          />
-        </div>
-      ) : (
-        <div className="relative aspect-[4/3] bg-gray-100 flex items-center justify-center">
-          <span className="text-gray-400 text-sm">暂无封面</span>
-        </div>
-      )}
-      {!isAvailable && (
-        <div className="absolute inset-0 bg-gray-900/50 flex items-center justify-center">
-          <span className="text-white text-lg font-medium px-4 py-2 bg-gray-800/80 rounded-lg">
-            敬请期待
-          </span>
-        </div>
-      )}
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <Image 
+          src={video.thumbnail}
+          alt={video.title}
+          fill
+          className="object-contain"
+        />
+        {!isAvailable && (
+          <div className="absolute inset-0 bg-gray-900/50 flex items-center justify-center">
+            <span className="text-white text-lg font-medium px-4 py-2 bg-gray-800/80 rounded-lg">
+              敬请期待
+            </span>
+          </div>
+        )}
+      </div>
       <div className="p-4">
         <div className="flex items-center gap-2 mb-2">
           <span className={`text-xs px-2 py-1 rounded font-medium ${video.category === 'G1系列' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
