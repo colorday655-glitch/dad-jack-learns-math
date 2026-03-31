@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { videos } from '../../data/videos';
@@ -17,6 +17,12 @@ function isSingleVideo(id: string): boolean {
 export default function ProductPage() {
   const params = useParams();
   const id = params?.id as string;
+  const searchParams = useSearchParams();
+  const paid = searchParams.get('paid');
+  
+  if (paid === 'true') {
+    return <PaymentSuccessPage id={id} />;
+  }
   
   if (isBundle(id)) {
     return <BundlePage id={id} />;
@@ -39,8 +45,101 @@ export default function ProductPage() {
   );
 }
 
+function PaymentSuccessPage({ id }: { id: string }) {
+  const video = videos.find(v => v.id === id);
+  const isBundle = id === 'G1-bundle' || id === 'G2-bundle';
+  
+  const title = isBundle 
+    ? (id === 'G1-bundle' ? 'G1系列套装' : 'G2系列套装')
+    : video?.title || '';
+    
+  const netdiskLink = 'https://pan.baidu.com/s/xxxxx';
+  const netdiskPassword = '1234';
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+      <header className="bg-white/80 backdrop-blur-sm border-b border-orange-100 sticky top-0 z-50">
+        <div className="max-w-2xl mx-auto px-4 py-3">
+          <Link 
+            href="/" 
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-orange-500 font-medium"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            返回首页
+          </Link>
+        </div>
+      </header>
+
+      <main className="max-w-2xl mx-auto px-4 py-8">
+        <div className="text-center mb-8">
+          <div className="text-6xl mb-4">🎉</div>
+          <h1 className="text-2xl font-bold text-gray-800 mb-2">购买成功！</h1>
+          <p className="text-gray-500">感谢您的支持</p>
+        </div>
+
+        <div className="pixar-card overflow-hidden">
+          <div className="p-6">
+            <h2 className="text-lg font-bold text-gray-800 mb-4">📦 您购买的内容</h2>
+            <p className="text-gray-600 mb-6">{title}</p>
+
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 mb-6">
+              <h3 className="font-bold text-green-700 mb-3">🔗 百度网盘下载链接</h3>
+              <div className="bg-white rounded-lg p-4 mb-3">
+                <p className="text-sm text-gray-500 mb-1">链接</p>
+                <a 
+                  href={netdiskLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-orange-500 hover:underline break-all"
+                >
+                  {netdiskLink}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-500">提取码：</span>
+                <span className="bg-white px-3 py-1 rounded font-mono font-bold text-gray-800">
+                  {netdiskPassword}
+                </span>
+                <button 
+                  onClick={() => navigator.clipboard.writeText(netdiskPassword)}
+                  className="text-orange-500 text-sm hover:underline"
+                >
+                  复制
+                </button>
+              </div>
+            </div>
+
+            <div className="text-sm text-gray-500 space-y-2">
+              <p>📌 使用说明：</p>
+              <ul className="list-disc list-inside ml-2">
+                <li>复制链接到浏览器打开</li>
+                <li>输入提取码保存到自己的网盘</li>
+                <li>下载后解压使用</li>
+              </ul>
+            </div>
+
+            <Link 
+              href="/"
+              className="block text-center text-orange-500 hover:text-orange-600 font-medium mt-6"
+            >
+              返回首页
+            </Link>
+          </div>
+        </div>
+      </main>
+
+      <footer className="text-center py-6 text-gray-400 text-sm">
+        © 2024 Jack爸爸学数学
+      </footer>
+    </div>
+  );
+}
+
 function SingleVideoPage({ id }: { id: string }) {
   const video = videos.find(v => v.id === id);
+  const [showModal, setShowModal] = useState(false);
 
   if (!video) {
     return (
@@ -70,6 +169,10 @@ function SingleVideoPage({ id }: { id: string }) {
       </div>
     );
   }
+
+  const handleBuy = () => {
+    setShowModal(true);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
@@ -137,7 +240,7 @@ function SingleVideoPage({ id }: { id: string }) {
               </div>
             </div>
 
-            <button className="w-full pixar-btn py-4 text-lg mt-6">
+            <button onClick={handleBuy} className="w-full pixar-btn py-4 text-lg mt-6">
               立即购买 ¥9.9
             </button>
 
@@ -151,6 +254,31 @@ function SingleVideoPage({ id }: { id: string }) {
         </div>
       </main>
 
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-6 max-w-sm w-full">
+            <h3 className="text-lg font-bold text-gray-800 mb-4 text-center">💬 联系客服购买</h3>
+            <p className="text-gray-500 text-sm text-center mb-4">
+              点击下方按钮添加客服微信，注明"购买{video.id}"
+            </p>
+            <a 
+              href="https://work.weixin.qq.com/kfid/XXXXXXXX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full pixar-btn py-3 text-center mb-3"
+            >
+              联系客服
+            </a>
+            <button 
+              onClick={() => setShowModal(false)}
+              className="block w-full text-gray-400 text-sm text-center hover:text-gray-600"
+            >
+              取消
+            </button>
+          </div>
+        </div>
+      )}
+
       <footer className="text-center py-6 text-gray-400 text-sm">
         © 2024 Jack爸爸学数学
       </footer>
@@ -161,6 +289,7 @@ function SingleVideoPage({ id }: { id: string }) {
 function BundlePage({ id }: { id: string }) {
   const isG1 = id === 'G1-bundle';
   const isG2 = id === 'G2-bundle';
+  const [showModal, setShowModal] = useState(false);
   
   const videos_ = isG1 
     ? videos.filter(v => v.category === 'G1系列')
@@ -171,6 +300,10 @@ function BundlePage({ id }: { id: string }) {
   const availableCount = videos_.filter(v => v.available).length;
   const price = '99.9';
   const seriesName = isG1 ? 'G1系列' : isG2 ? 'G2系列' : '';
+
+  const handleBuy = () => {
+    setShowModal(true);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
@@ -254,7 +387,7 @@ function BundlePage({ id }: { id: string }) {
               </div>
             </div>
 
-            <button className="w-full pixar-btn py-4 text-lg">
+            <button onClick={handleBuy} className="w-full pixar-btn py-4 text-lg">
               立即购买 ¥{price}
             </button>
 
@@ -271,6 +404,31 @@ function BundlePage({ id }: { id: string }) {
           </div>
         </div>
       </main>
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-6 max-w-sm w-full">
+            <h3 className="text-lg font-bold text-gray-800 mb-4 text-center">💬 联系客服购买</h3>
+            <p className="text-gray-500 text-sm text-center mb-4">
+              点击下方按钮添加客服微信，注明"购买{seriesName}"
+            </p>
+            <a 
+              href="https://work.weixin.qq.com/kfid/XXXXXXXX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full pixar-btn py-3 text-center mb-3"
+            >
+              联系客服
+            </a>
+            <button 
+              onClick={() => setShowModal(false)}
+              className="block w-full text-gray-400 text-sm text-center hover:text-gray-600"
+            >
+              取消
+            </button>
+          </div>
+        </div>
+      )}
 
       <footer className="text-center py-6 text-gray-400 text-sm">
         © 2024 Jack爸爸学数学
