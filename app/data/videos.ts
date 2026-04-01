@@ -31,7 +31,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV17kPXzuEuM/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G102.jpg',
+    thumbnail: '/learns-math/images/videos/G102.jpg',
     duration: '05:35',
     publishDate: '2024-04-01',
     available: true
@@ -43,7 +43,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1GpcQzpES4/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G103.jpg',
+    thumbnail: '/learns-math/images/videos/G103.jpg',
     duration: '04:33',
     publishDate: '2024-03-25',
     available: true
@@ -55,7 +55,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1UbwczuEvA/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G104.jpg',
+    thumbnail: '/learns-math/images/videos/G104.jpg',
     duration: '04:49',
     publishDate: '2024-03-20',
     available: true
@@ -67,7 +67,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1DswWzuEWE/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G105.jpg',
+    thumbnail: '/learns-math/images/videos/G105.jpg',
     duration: '04:32',
     publishDate: '2024-03-15',
     available: true
@@ -79,7 +79,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1E4w3zHEKT/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G106.jpg',
+    thumbnail: '/learns-math/images/videos/G106.jpg',
     duration: '03:25',
     publishDate: '2024-03-10',
     available: true
@@ -91,7 +91,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1xwwzzGEgB/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G107.jpg',
+    thumbnail: '/learns-math/images/videos/G107.jpg',
     duration: '02:49',
     publishDate: '2024-03-01',
     available: true
@@ -103,7 +103,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1jXAEz6EQc/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G108.jpg',
+    thumbnail: '/learns-math/images/videos/G108.jpg',
     duration: '02:25',
     publishDate: '2024-02-20',
     available: true
@@ -115,7 +115,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV13gAczjEEH/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G109.jpg',
+    thumbnail: '/learns-math/images/videos/G109.jpg',
     duration: '01:46',
     publishDate: '2024-02-15',
     available: true
@@ -127,7 +127,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1aQAcz7Ece/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G110.jpg',
+    thumbnail: '/learns-math/images/videos/G110.jpg',
     duration: '01:34',
     publishDate: '2024-02-10',
     available: true
@@ -139,7 +139,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV13GAAzXEXi/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G111.jpg',
+    thumbnail: '/learns-math/images/videos/G111.jpg',
     duration: '01:32',
     publishDate: '2024-02-01',
     available: true
@@ -151,7 +151,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1sGAKzJEK8/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G112.jpg',
+    thumbnail: '/learns-math/images/videos/G112.jpg',
     duration: '01:42',
     publishDate: '2024-01-20',
     available: true
@@ -163,7 +163,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1kTXsBuEqU/',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/G201.jpg',
+    thumbnail: '/learns-math/images/videos/G201.jpg',
     duration: '01:23',
     publishDate: '2024-01-15',
     available: true
@@ -175,7 +175,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV17aXyB9EQw/',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/G202.jpg',
+    thumbnail: '/learns-math/images/videos/G202.jpg',
     duration: '02:15',
     publishDate: '2024-01-22',
     available: true
@@ -187,7 +187,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1VXXDBeEWv/',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/G203.jpg',
+    thumbnail: '/learns-math/images/videos/G203.jpg',
     duration: '02:30',
     publishDate: '2024-01-29',
     available: true
@@ -199,7 +199,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1GiX6BvENL/',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/G204.jpg',
+    thumbnail: '/learns-math/images/videos/G204.jpg',
     duration: '02:45',
     publishDate: '2024-02-05',
     available: true
@@ -211,7 +211,7 @@ export const videos: Video[] = [
     videoUrl: '',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/placeholder.jpg',
+    thumbnail: '/learns-math/images/videos/placeholder.jpg',
     duration: '',
     publishDate: '',
     available: false
@@ -223,7 +223,7 @@ export const videos: Video[] = [
     videoUrl: '',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/placeholder.jpg',
+    thumbnail: '/learns-math/images/videos/placeholder.jpg',
     duration: '',
     publishDate: '',
     available: false
@@ -235,7 +235,7 @@ export const videos: Video[] = [
     videoUrl: '',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/placeholder.jpg',
+    thumbnail: '/learns-math/images/videos/placeholder.jpg',
     duration: '',
     publishDate: '',
     available: false
@@ -247,7 +247,7 @@ export const videos: Video[] = [
     videoUrl: '',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/placeholder.jpg',
+    thumbnail: '/learns-math/images/videos/placeholder.jpg',
     duration: '',
     publishDate: '',
     available: false
@@ -259,7 +259,7 @@ export const videos: Video[] = [
     videoUrl: '',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/placeholder.jpg',
+    thumbnail: '/learns-math/images/videos/placeholder.jpg',
     duration: '',
     publishDate: '',
     available: false
@@ -271,7 +271,7 @@ export const videos: Video[] = [
     videoUrl: '',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/placeholder.jpg',
+    thumbnail: '/learns-math/images/videos/placeholder.jpg',
     duration: '',
     publishDate: '',
     available: false
@@ -283,7 +283,7 @@ export const videos: Video[] = [
     videoUrl: '',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/placeholder.jpg',
+    thumbnail: '/learns-math/images/videos/placeholder.jpg',
     duration: '',
     publishDate: '',
     available: false
@@ -295,7 +295,7 @@ export const videos: Video[] = [
     videoUrl: '',
     platform: 'bilibili',
     category: 'G2系列',
-    thumbnail: '/images/videos/placeholder.jpg',
+    thumbnail: '/learns-math/images/videos/placeholder.jpg',
     duration: '',
     publishDate: '',
     available: false
