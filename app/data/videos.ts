@@ -19,7 +19,7 @@ export const videos: Video[] = [
     videoUrl: 'https://www.bilibili.com/video/BV1QWNgzLE44/',
     platform: 'bilibili',
     category: 'G1系列',
-    thumbnail: '/images/videos/G101.jpg',
+    thumbnail: '/learns-math/images/videos/G101.jpg',
     duration: '03:40',
     publishDate: '2024-04-10',
     available: true
