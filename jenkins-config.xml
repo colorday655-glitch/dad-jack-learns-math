@@ -42,7 +42,11 @@ npm run build
 
 # Restart PM2
 pm2 delete dad-jack-learns-math || true
-PORT=3003 pm2 start npm --name dad-jack-learns-math -- start</command>
+PORT=3003 pm2 start npm --name dad-jack-learns-math -- start
+
+# Verify
+sleep 3
+curl -s -f http://localhost:3003/learns-math > /dev/null && echo "部署成功"</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
